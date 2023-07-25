@@ -1,0 +1,111 @@
+\chapter{L'oscillateur de Duffing}
+
+Considéront l'oscillateur forcé, mais maintenant avec un terme en $x^3$ supplémentaire, nous donnant l'équation de Duffing forcé. Ce n'est plus une équation linéaire, donc on ne peut plus exprimer la solution comme étant une superposition des solutions homogènes et particulières.
+
+%Limite faible de $\epsilon$
+
+\begin{equation}
+    \ddot{x} + \gamma \dot{x} + \omega_0^2 x + \epsilon x^3 = f_0 \cos(\omega t)
+    \label{eq:duffing}
+\end{equation}
+
+%Aussi faible qu'il soit, ce terme invalide principe de superposition. Mais on peut faire des hypothèses a partir de faible amplitude...
+
+Pour $\epsilon$ et $f_0$ suffisamenent faible, on s'attend à trouver un comportement semblable à l'oscillateur harmonique. 
+On cherche donc des solution de la forme :
+%on peut traiter le système comme étant un oscillateur harmonique perturbé. 
+%En s'inspirant de l'oscillateur harmonique forcé, 
+\begin{equation}
+x(t) = r(t)\cos(\omega t + \phi(t)) \qquad \dot{x}(t) =  -\omega r(t)\sin(\omega t + \phi(t))
+\label{eq:duff_x_xdot}
+\end{equation}
+\begin{equation*}
+    r(t) = \sqrt{x^2 + (\dot{x}/\omega)^2}
+\end{equation*}
+
+
+On fait l'hypothèse que comme dans le cas de l'oscillateur harmonique amorti, 
+la vitesse d'évolution de $r$ et de $\phi$ sont données par le coefficient d'amortissement $\gamma$. 
+Donc si $\gamma \ll \omega$,  $r$ et $\phi$ vont varier
+ lentement par rapport à la periode d'oscillation de $x$.
+
+En notation complexe :
+\begin{equation}
+    x(t) = z(t)e^{i\omega t} + z(t)^* e^{-i\omega t}
+    \qquad 
+    \dot{x}(t) = i\omega \left[ z(t)e^{i\omega t} - z(t)^* e^{-i\omega t} \right]
+\end{equation}
+
+
+$z(t)$ étant une variable complexe encodant l'amplitude et la phase d'oscillations du système.
+\[ z(t) = \frac{r(t)}{2}e^{i\phi(t)} \]
+
+Ce changement de variable $(x, \dot{x}) \to (r, \phi)$ nous place effectivement sur un référentiel tournant à la fréquence $\omega$. 
+En écartant ces oscillations rapides auquelles on s'attend, on peut mieux se concentrer sur les oscillations lentes de $r(t)$ et de $\phi(t)$. 
+Lorsque l'oscillateur oscille de manière harmonique, $z$ est constant \cite{pistolesi_duffing_nodate}.
+
+En prenant la dérivée de \eqref{eq:duff_x_xdot}, on obtient :
+\begin{equation}
+    \dot{x}(t) = \dot{z}(t)e^{i\omega t} + \dot{z}(t)^* e^{-i\omega t} + i\omega \left[ z(t)e^{i\omega t} - z(t)^* e^{-i\omega t} \right]
+    \label{eq:duff_x}
+\end{equation}
+\begin{equation}
+    \ddot{x}(t) = i\omega \left[ \dot{z}(t)e^{i\omega t} - \dot{z}(t)^* e^{-i\omega t} \right] + (i\omega)^2 \left[ z(t)e^{i\omega t} + z(t)^* e^{-i\omega t} \right]
+\end{equation}
+À partir de \eqref{eq:duff_x_xdot} et de \eqref{eq:duff_x_xdot}, on obtient la condition :
+\begin{equation}
+    \dot{z}(t)e^{i\omega t} + \dot{z}(t)^* e^{-i\omega t} = 0
+\end{equation}
+
+En substituant les equations de $x$, $\dot{x}$, et de $\ddot{x}$ dans \eqref{eq:duffing} :
+
+\begin{dmath}
+    2i\omega \dot{z}(t)e^{i\omega t} + (i\omega)^2 \left[ z(t)e^{i\omega t} + z(t)^* e^{-i\omega t} \right]
+    + i\gamma\omega \left[ z(t)e^{i\omega t} - z(t)^* e^{-i\omega t} \right] \\
+    + \omega_0^2 \left[ z(t)e^{i\omega t} + z(t)^* e^{-i\omega t} \right]
+    + \epsilon \left[ z(t)e^{i\omega t} + z(t)^* e^{-i\omega t} \right]^3 = \frac{f_0}{2}\left[ e^{i\omega t} + e^{-i\omega t} \right]
+\end{dmath}
+Puis en multipliant par $e^{-i\omega t}$ :
+\begin{dmath}
+    2i\omega \dot{z}(t) + (i\omega)^2 \left[ z(t) + \bar{z}(t) e^{-i 2 \omega t} \right]
+    + i\gamma\omega \left[ z(t) - \bar{z}(t) e^{-i 2 \omega t} \right]
+    + \omega_0^2 \left[ z(t) + \bar{z}(t) e^{-i 2 \omega t} \right] \\
+    + \epsilon \left[ z(t)^3 e^{i 2 \omega t} + 3 z(t)^2 \bar{z}(t) + 3z(t)\bar{z}(t)^2 e^{-i2\omega t} + \bar{z}(t)^3 e^{-i4 \omega t} \right]
+    = \frac{f_0}{2}\left[ 1 + e^{-i 2 \omega t} \right]
+    \label{eq:duff_pre_av}
+\end{dmath}
+
+Jusqu'ici, tout est éxacte. On procède par une opération de moyennement, qui exploite les deux echelles de temps observé dans notre système. 
+Une échelle `rapide' marqué par des oscillations rapides avec des periodes de l'ordre $T = 2\pi / \omega$, 
+et une échelle `lente' selon laquelle évolue $z(t)$. 
+
+La méthode de moyennement consiste à remarquer qu'étant donné que $z$ évolue très lentement, il reste quasiment constant au cours d'une periode d'oscillation rapide $T$. 
+\begin{equation*}
+    \langle z \rangle = \frac{1}{T}\int_{t-\frac{T}{2}}^{t+\frac{T}{2}}{z(t')}dt' \approx  z(t)
+\end{equation*}
+
+$\omega t$ étant défini modulo $2\pi$, on remarque aussi que pour $n \neq 0$ :
+\begin{equation*}
+    \frac{1}{T}\int_{t-\frac{T}{2}}^{t+\frac{T}{2}}{e^{in\omega t'}}dt' = 0
+\end{equation*}
+
+Donc on peut prendre la moyenne mobile de l'equation \eqref{eq:duff_pre_av} 
+tout en traitant $\dot{z}$, $z$ et $\bar{z}$ comme étant constants, 
+ce qui nous permet de négliger les facteurs de $e^{i n\omega t}$.
+
+\begin{dmath}
+    2i\omega \dot{z}(t) = - (i\omega)^2 z(t)
+    - i\gamma\omega z(t)
+    - \omega_0^2 z(t) 
+    - 3 \epsilon |z|^2 z(t)
+    + \frac{f_0}{2} \\
+    = (\omega^2 - \omega_0^2)z(t) - i\gamma\omega z(t) - 3\epsilon |z|^2 z(t) + \frac{f_0}{2}
+    \label{eq:duff_pre_av}
+\end{dmath}
+
+On s'interesse surtout au comportement du système près du pic de résonance, 
+donc on prend l'approximation $\omega^2 - \omega_0^2 = (\omega + \omega_0)(\omega - \omega_0) \approx 2\omega(\omega - \omega_0)$ :
+\begin{dmath}
+    \dot{z}(t) = -i(\omega - \omega_0)z(t)
+    - \frac{\gamma}{2} z(t) + \frac{3i\epsilon}{2\omega}|z|^2z(t) - \frac{if_0}{4\omega}
+\end{dmath}

@@ -1,0 +1,96 @@
+\documentclass{report}
+\usepackage{graphicx} % Required for inserting images
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{geometry}
+\usepackage{setspace}
+
+\usepackage[font=small,labelfont=bf]{caption}
+\usepackage{subcaption}
+\usepackage[font=small,labelfont=bf]{caption}
+\usepackage{multicol}
+\usepackage{titlesec}
+
+\usepackage[
+            backend=biber,
+            style=numeric,
+            %langid=french,
+            sorting=none,
+            ]{biblatex}
+
+
+\usepackage[utf8]{inputenc}
+% to ensure citations follow french convention
+\usepackage{csquotes}
+
+
+\usepackage{breqn}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usepackage{tcolorbox}
+\usepackage{comment}
+
+
+\usepackage[hidelinks, colorlinks=true, allcolors=blue]{hyperref}
+
+
+\usepackage{float}
+
+\edef\restoreparindent{\parindent=\the\parindent\relax}
+\usepackage{parskip}
+
+\captionsetup{belowskip=0pt}
+
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{siunitx}
+\usepackage{physics}
+
+
+\geometry{a4paper, margin=1.9cm}
+
+% removes large overhead margin from chapter header
+\titlespacing{\chapter}{0pt}{-50pt}{10pt}
+
+% removes "Chapter N" text
+\titleformat{\chapter}[display]
+  {\huge\bfseries}
+  {}
+  {0pt}
+  {\thechapter.\ }
+
+
+\titleformat{name=\chapter,numberless}[display]
+  {\huge\bfseries}
+  {}
+  {0pt}
+  {}
+
+
+
+
+
+
+
+\addbibresource{refs/ref_v2.bib}
+
+
+\title{\Huge{Rapport de Stage}}
+
+\author{Hervé SV}
+\date{Juillet 2023}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+\include{chaptrs/intro}
+\include{chaptrs/harmonique}
+\include{chaptrs/duffing}
+
+
+\printbibliography
+
+\end{document}

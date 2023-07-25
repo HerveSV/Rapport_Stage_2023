@@ -1,0 +1,83 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.2 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{none/global//global/global}
+    \entry{feynman_feynman_nodate}{book}{}
+      \name{author}{1}{}{%
+        {{hash=76c376c1c6574c7dad0b40422ddcb0af}{%
+           family={Feynman},
+           familyi={F\bibinitperiod},
+           given={Richard},
+           giveni={R\bibinitperiod}}}%
+      }
+      \strng{namehash}{76c376c1c6574c7dad0b40422ddcb0af}
+      \strng{fullhash}{76c376c1c6574c7dad0b40422ddcb0af}
+      \strng{bibnamehash}{76c376c1c6574c7dad0b40422ddcb0af}
+      \strng{authorbibnamehash}{76c376c1c6574c7dad0b40422ddcb0af}
+      \strng{authornamehash}{76c376c1c6574c7dad0b40422ddcb0af}
+      \strng{authorfullhash}{76c376c1c6574c7dad0b40422ddcb0af}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Ch. 23: Resonance}
+      \field{title}{The Feynman Lectures on Physics Vol. I}
+      \field{volume}{1}
+      \verb{file}
+      \verb The Feynman Lectures on Physics Vol. I Ch. 23\: Resonance:/Users/hervesv/Zotero/storage/KGURL34U/I_23.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb https://www.feynmanlectures.caltech.edu/I_23.html
+      \endverb
+      \verb{url}
+      \verb https://www.feynmanlectures.caltech.edu/I_23.html
+      \endverb
+      \warn{\item book entry 'feynman_feynman_nodate' (refs/ref_v2.bib): Invalid format '2023-07-24' of date field 'urldate' - ignoring}
+    \endentry
+    \entry{pistolesi_duffing_nodate}{unpublished}{}
+      \name{author}{1}{}{%
+        {{hash=818a363de0ef998fd180d186d21ebad7}{%
+           family={Pistolesi},
+           familyi={P\bibinitperiod},
+           given={Fabio},
+           giveni={F\bibinitperiod}}}%
+      }
+      \strng{namehash}{818a363de0ef998fd180d186d21ebad7}
+      \strng{fullhash}{818a363de0ef998fd180d186d21ebad7}
+      \strng{bibnamehash}{818a363de0ef998fd180d186d21ebad7}
+      \strng{authorbibnamehash}{818a363de0ef998fd180d186d21ebad7}
+      \strng{authornamehash}{818a363de0ef998fd180d186d21ebad7}
+      \strng{authorfullhash}{818a363de0ef998fd180d186d21ebad7}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{langid}{english}
+      \field{note}{Notes, non publié}
+      \field{title}{Duffing response in presence of thermal fluctuations}
+      \verb{file}
+      \verb DuffingDerivation.pdf:/Users/hervesv/Zotero/storage/QZA3ZDEU/DuffingDerivation.pdf:application/pdf
+      \endverb
+    \endentry
+  \enddatalist
+  \missing{kwak_nanobionic_2017}
+\endrefsection
+\endinput
+
