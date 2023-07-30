@@ -1,6 +1,6 @@
 \chapter{L'oscillateur de Duffing}
 
-Considéront l'oscillateur forcé, mais maintenant avec un terme en $x^3$ supplémentaire, nous donnant l'équation de Duffing forcé. Ce n'est plus une équation linéaire, donc on ne peut plus exprimer la solution comme étant une superposition des solutions homogènes et particulières.
+Considéront de nouveau un oscillateur forcé, mais maintenant avec un terme en $x^3$ supplémentaire, nous donnant l'équation de Duffing forcé. Ce n'est plus une équation linéaire, donc on ne peut plus exprimer la solution comme étant une superposition des solutions homogènes et particulières.
 
 %Limite faible de $\epsilon$
 
@@ -41,7 +41,7 @@ $z(t)$ étant une variable complexe encodant l'amplitude et la phase d'oscillati
 \[ z(t) = \frac{r(t)}{2}e^{i\phi(t)} \]
 
 Ce changement de variable $(x, \dot{x}) \to (r, \phi)$ nous place effectivement sur un référentiel tournant à la fréquence $\omega$. 
-En écartant ces oscillations rapides auquelles on s'attend, on peut mieux se concentrer sur les oscillations lentes de $r(t)$ et de $\phi(t)$. 
+En écartant ces oscillations rapides auquelles on s'attend, on peut mieux se concentrer sur les variations lentes de $r(t)$ et de $\phi(t)$. 
 Lorsque l'oscillateur oscille de manière harmonique, $z$ est constant \cite{pistolesi_duffing_nodate}.
 
 En prenant la dérivée de \eqref{eq:duff_x_xdot}, on obtient :
@@ -52,7 +52,7 @@ En prenant la dérivée de \eqref{eq:duff_x_xdot}, on obtient :
 \begin{equation}
     \ddot{x}(t) = i\omega \left[ \dot{z}(t)e^{i\omega t} - \dot{z}(t)^* e^{-i\omega t} \right] + (i\omega)^2 \left[ z(t)e^{i\omega t} + z(t)^* e^{-i\omega t} \right]
 \end{equation}
-À partir de \eqref{eq:duff_x_xdot} et de \eqref{eq:duff_x_xdot}, on obtient la condition :
+À partir de \eqref{eq:duff_x_xdot} et de \eqref{eq:duff_x}, on obtient la condition :
 \begin{equation}
     \dot{z}(t)e^{i\omega t} + \dot{z}(t)^* e^{-i\omega t} = 0
 \end{equation}
@@ -79,33 +79,173 @@ Jusqu'ici, tout est éxacte. On procède par une opération de moyennement, qui 
 Une échelle `rapide' marqué par des oscillations rapides avec des periodes de l'ordre $T = 2\pi / \omega$, 
 et une échelle `lente' selon laquelle évolue $z(t)$. 
 
-La méthode de moyennement consiste à remarquer qu'étant donné que $z$ évolue très lentement, il reste quasiment constant au cours d'une periode d'oscillation rapide $T$. 
-\begin{equation*}
+La méthode de moyennement consiste à remarquer qu'étant donné que $z$ évolue très lentement, 
+il reste quasiment constant au cours d'une periode d'oscillation rapide $T$. 
+Donc on se permet de traiter $z(t)$ comme étant synonyme à sa moyenne sur une oscillation $\langle z \rangle$. $\langle z \rangle$ étant constant sur une periode d'oscillation.
+\begin{equation}
     \langle z \rangle = \frac{1}{T}\int_{t-\frac{T}{2}}^{t+\frac{T}{2}}{z(t')}dt' \approx  z(t)
-\end{equation*}
+\end{equation}
+\begin{equation}
+    \int_{t-\frac{T}{2}}^{t+\frac{T}{2}}{z(t')e^{in\omega t'}}dt'  \approx z(t) \int_{t-\frac{T}{2}}^{t+\frac{T}{2}}{e^{in\omega t'}}dt'
+\end{equation}
 
-$\omega t$ étant défini modulo $2\pi$, on remarque aussi que pour $n \neq 0$ :
+Depuis le principe fondamental de l'analyse, on peut aussi démontrer que :
+
+\begin{equation}
+    \langle \dot{z} \rangle = \frac{d}{dt} \langle z \rangle
+\end{equation}
+
+Et $n \omega t$ étant défini modulo $2\pi$, on remarque que pour $n \neq 0$ :
 \begin{equation*}
     \frac{1}{T}\int_{t-\frac{T}{2}}^{t+\frac{T}{2}}{e^{in\omega t'}}dt' = 0
 \end{equation*}
 
-Donc on peut prendre la moyenne mobile de l'equation \eqref{eq:duff_pre_av} 
-tout en traitant $\dot{z}$, $z$ et $\bar{z}$ comme étant constants, 
+On prend donc la moyenne mobile de l'equation \eqref{eq:duff_pre_av}, 
 ce qui nous permet de négliger les facteurs de $e^{i n\omega t}$.
-
 \begin{dmath}
-    2i\omega \dot{z}(t) = - (i\omega)^2 z(t)
-    - i\gamma\omega z(t)
-    - \omega_0^2 z(t) 
-    - 3 \epsilon |z|^2 z(t)
+    2i\omega \langle \dot{z} \rangle = - (i\omega)^2 \langle z \rangle
+    - i\gamma\omega \langle z \rangle
+    - \omega_0^2 \langle z \rangle 
+    - 3 \epsilon \langle z^2 \bar{z} \rangle
     + \frac{f_0}{2} \\
     = (\omega^2 - \omega_0^2)z(t) - i\gamma\omega z(t) - 3\epsilon |z|^2 z(t) + \frac{f_0}{2}
-    \label{eq:duff_pre_av}
 \end{dmath}
+Une autre façon d'y  penser :  on discrétise le temps en blocs de $T$. 
+Donc d'une certaine manière, on réduis la résolution temporelle de nos équations pour ne garder que les parties lentement variables.
 
-On s'interesse surtout au comportement du système près du pic de résonance, 
-donc on prend l'approximation $\omega^2 - \omega_0^2 = (\omega + \omega_0)(\omega - \omega_0) \approx 2\omega(\omega - \omega_0)$ :
+Ensuite, comme on s'interesse surtout au comportement du système près du pic de résonance, 
+on prend l'approximation $\omega^2 - \omega_0^2 = (\omega + \omega_0)(\omega - \omega_0) \approx 2\omega(\omega - \omega_0)$ :
 \begin{dmath}
     \dot{z}(t) = -i(\omega - \omega_0)z(t)
     - \frac{\gamma}{2} z(t) + \frac{3i\epsilon}{2\omega}|z|^2z(t) - \frac{if_0}{4\omega}
 \end{dmath}
+
+
+\section{Adimensionnement de l'équation}
+
+Afin d'adimensionner l'équation, on procède par deux changements de variables :
+
+\begin{equation}
+    t = t_c \tau
+    \qquad 
+    z(t) = z_c q(\tau)
+\end{equation}
+Où $t_c$ et $z_c$ sont des constantes physiques à définir et $\tau$ et $q(\tau)$ sont les variable adimensionné analogues à $t$ et $z(t)$.
+Ce choix de variables nous donne l'équation suivante :
+
+\begin{equation}
+    \frac{dq}{d\tau} = q'(\tau) = -i(\omega - \omega_0)t_c q(\tau) - \frac{\gamma}{2}t_c q(\tau) + i \frac{3\epsilon}{2\omega}z_c^2t_c |q|^2q(\tau) - \frac{if_0}{4\omega}t_c
+\end{equation}
+Si on pose comme conditions :
+\begin{equation}
+    \left\{
+    \begin{array}{@{}l@{}}
+        \frac{\gamma}{2}t_c = 1 \\
+        \\
+        \frac{3\epsilon}{2\omega}z_c^2t_c = 1
+    \end{array}
+    \right.\,
+\end{equation}
+On retrouve l'équation adimensionné
+\begin{equation}
+    q'(\tau) = -i\Omega q(\tau) - q(\tau) + i|q|^2q(\tau) - F_0
+\end{equation}
+Avec :
+\begin{equation}
+    \tau = \frac{\gamma}{2}t
+    \qquad
+    q(\tau) = \sqrt{\frac{3\epsilon}{\omega\gamma}}z(t)
+    \qquad
+    \Omega = \frac{(\omega - \omega_0)}{\gamma/2}
+    \qquad
+    F_0 = \frac{\sqrt{3\gamma}f_0}{2(\omega \gamma)^{3/2}}
+\end{equation}
+
+On peut trouver la solution stationnaire :
+
+\begin{equation}
+    q_0 = \frac{F_0}{|q_0|^2 - \Omega + i}
+    \label{eq:duff_stationnaire}
+\end{equation}
+
+On s'interesse surtout à l'amplitude en fonction de la fréquence, 
+mais sous cette forme, l'analyse de la courbe n'est pas facile car 
+on ne peut pas exprimer $|q_0|$ en tant que fonction de $\Omega$. 
+Cependant, il est possible d'exprimer $\Omega$ en fonction de $|q_0|$ :
+
+\begin{equation}
+    \Omega = |q_0|^2 \pm \sqrt{\frac{F_0^2}{|q_0|^2} - 1 }
+\end{equation}
+
+Où $\pm \sqrt{\frac{F_0^2}{|q_0|^2} - 1 }$ correspondant à une lorentzienne pure, et $|q_0|^2$ forme 
+une épine (\emph{backbone} en anglais) qui donne la forme caracterstique de cette réponse fréquentielle non-linéaire.
+
+Pour $F_0 \to 0$ la réponse devient lorenzienne. Effectivement, comme $F_0 \propto \sqrt{\gamma} f_0$, 
+si le coefficient de non-linéarité est nulle ou négligeable (et $f_0$ pas trop grand), alors le système 
+se comportera comme un oscillateur harmonique.
+
+On observe aussi qu'il existe une valeur critique $F_{0,c}$ où pour $F_0 > F_{0,c}$ le système admet 
+jusqu'à trois amplitudes possible, dont deux stables \cite{landau_mechanics_1976}. On parle alors d'un état bistable, l'état pris dépend de l'histoire du système.
+
+\begin{figure}[!b]
+    
+    \begin{subcaptionblock}{.31\linewidth}
+      \includegraphics[width=\linewidth]{images/duffing/F0=0.5.png}%
+      \phantomcaption
+    \end{subcaptionblock}
+    %\hfill
+    \begin{subcaptionblock}{.31\linewidth}
+      \includegraphics[width=\linewidth]{images/duffing/F0=1.5.png}%
+      \phantomcaption
+    \end{subcaptionblock}
+    %\hfill
+    \begin{subcaptionblock}{.31\linewidth}
+      \includegraphics[width=\linewidth]{images/duffing/F0=5.0.png}
+      \phantomcaption
+    \end{subcaptionblock}
+    \caption{Réponse fréquentielle de Duffing}
+\end{figure}
+On cherche alors à déterminer la valeur de $F_{0, c}$. Pour alléger la notation, 
+on introduit la variable $u = |q_0|$ et on réecrit \eqref{eq:duff_stationnaire} :
+\begin{equation}
+    u^2[(u^2 - \Omega)^2 + 1] = F_0^2
+    \label{eq:duff_stationnaire_u}
+\end{equation}
+
+Puis on prend la dérivée par rapport à $\Omega$.
+
+\begin{equation}
+    2u\frac{du}{d\Omega}(u^4 + \Omega^2 - 2\Omega u^2 + 1) + u^2(4u^3\frac{du}{d\Omega} + 2\Omega - 2u^2 - 4\Omega u\frac{du}{d\Omega}) = \frac{d}{d\Omega}F_0^2
+\end{equation}
+On remarque que $F_0$ et $\Omega$ dépendent tout les deux de $\omega$, qui est la vrai fréquence de forçage. Toutefois, pour dériver l'équation d'origine, on à supposé $\omega \approx \omega_0$. Donc : 
+\begin{equation*}
+    \Omega \propto (\omega - \omega_0) \ll \omega
+\end{equation*}
+C'est à dire qu'en variant $\Omega$, la variation correspondante que subira $F_0$ sera très petite. Donc on se permet de la considérer comme étant constante. En isolant $\frac{du}{d\Omega}$ on obtient :
+\begin{equation}
+    \frac{du}{d\Omega} = \frac{-\Omega u + u^3}{3u^4 + \Omega^2 - 4\Omega u^2 + 1}
+\end{equation}
+On peut d'abord déterminer l'amplitude maximum, qui est atteint lorsque $\frac{du}{d\Omega}=0$, en réinsérant cette condition dans \eqref{eq:duff_stationnaire_u} on trouve :
+\begin{equation*}
+    |q_0|_{max} = F_0
+\end{equation*}
+La bistabilité apparait lorsque qu'on à plusieurs point sur la courbe qui satisfaise $\frac{du}{d\Omega}=\infty$, nous donnant la condition :
+\begin{equation}
+    3u^4 + \Omega^2 - 4\Omega u^2 + 1 = 0
+\end{equation}
+Lorsque $F_0 = F_{0,c}$, les points verticaux se rejoigned en un point unique. On peut donc résoudre pour $u^2$ en posant que le déterminant s'annulle. On obtient les conditions :
+\begin{equation}
+    \Omega = \pm \sqrt{3}
+    \qquad
+    u^2 = \frac{2\Omega}{3}
+\end{equation}
+Ce qui nous impose la solution unique $\Omega = \sqrt{3}$. En substituant ces valeurs dans \eqref{eq:duff_stationnaire_u}, on trouve :
+\begin{equation}
+    F_{0,c} = \left(  \frac{8\sqrt{3}}{9}  \right)^{1/2}
+\end{equation}
+
+Un observation finale interessante. Etant donné que $F_0 \propto \sqrt{\epsilon}f_0$, 
+on voit que même dans un système ou le terme nonlinéaire est très faible, où normalement 
+on ne va pas observer de non-linéarité. Il suffit d'augmenter l'amplitude de forçage $f_0$ 
+pour que faire ressortir un comportement non-linéaire (ici un état bistable). On voit donc que l'oscillateur harmonique, 
+dans la plupart des cas physiques, n'est qu'une appromation valable à des amplitudes relativement faibles.

@@ -1,4 +1,5 @@
 \documentclass{report}
+
 \usepackage{graphicx} % Required for inserting images
 \usepackage[french]{babel}
 \usepackage[T1]{fontenc}
@@ -11,15 +12,15 @@
 \usepackage{multicol}
 \usepackage{titlesec}
 
+\usepackage[utf8]{inputenc}
 \usepackage[
             backend=biber,
             style=numeric,
             %langid=french,
             sorting=none,
             ]{biblatex}
+\DeclareNameAlias{author}{last-first}
 
-
-\usepackage[utf8]{inputenc}
 % to ensure citations follow french convention
 \usepackage{csquotes}
 
@@ -51,7 +52,7 @@
 \geometry{a4paper, margin=1.9cm}
 
 % removes large overhead margin from chapter header
-\titlespacing{\chapter}{0pt}{-50pt}{10pt}
+\titlespacing{\chapter}{0pt}{-30pt}{10pt}
 
 % removes "Chapter N" text
 \titleformat{\chapter}[display]
@@ -73,7 +74,7 @@
 
 
 
-\addbibresource{refs/ref_v2.bib}
+\addbibresource{refs/ref_v3.bib}
 
 
 \title{\Huge{Rapport de Stage}}
@@ -86,11 +87,25 @@
 \maketitle
 \tableofcontents
 
-\include{chaptrs/intro}
-\include{chaptrs/harmonique}
-\include{chaptrs/duffing}
+%\begingroup
+%\let\clearpage\relax
+\input{chaptrs/intro}
+%\endgroup
 
+\begingroup
+\let\clearpage\relax
+\input{chaptrs/harmonique}
+\endgroup
+
+\begingroup
+\let\clearpage\relax
+\input{chaptrs/duffing}
+\endgroup
+
+\begingroup
+\let\clearpage\relax
+\input{chaptrs/vdp}
+\endgroup
 
 \printbibliography
-
 \end{document}
