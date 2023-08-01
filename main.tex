@@ -86,25 +86,27 @@
 
 \maketitle
 \tableofcontents
+% switch \include with \input
 
-%\begingroup
+\begingroup
 %\let\clearpage\relax
 \input{chaptrs/intro}
-%\endgroup
-
-\begingroup
-\let\clearpage\relax
-\input{chaptrs/harmonique}
+%\let\clearpage\relax
 \endgroup
 
 \begingroup
 \let\clearpage\relax
-\input{chaptrs/duffing}
+\include{chaptrs/harmonique}
 \endgroup
 
 \begingroup
 \let\clearpage\relax
-\input{chaptrs/vdp}
+\include{chaptrs/duffing}
+\endgroup
+
+\begingroup
+\let\clearpage\relax
+\include{chaptrs/vdp}
 \endgroup
 
 \printbibliography
