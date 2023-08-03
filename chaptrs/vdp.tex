@@ -57,25 +57,53 @@ alors que pour grand $\epsilon$ le cycle est fortement déformé et caractéris�
 
 En comparent les oscillations des système faiblement et fortement non-linéaire, on observe aussi que la fréquence d'oscillation diverge de la fréquence naturelle $\omega_0 = 1$ lorsque $\epsilon$ augmente. 
 %Cette remarque, faite en premier par Lindstedt, va nous inspirer à chercher une solution approximative de \eqref{eq:vdp} sous forme d'un development perturbative
-On va chercher une solution approximative de \eqref{eq:vdp} sous forme d'un development perturbative. En particulier, on va utiliser la méthode de Lindstedt, 
-qui nous permet de prendre en compte la dépendence qu'a $\epsilon$ sur la fréquence d'oscillations. L'approche consiste à définir une echelle de temps normalisé et de prendre la fréquence $\omega$ du cycle limite comme étant un inconnu qui dépend de $\epsilon$ :
+On va chercher une solution approximative pour le cycle limite de \eqref{eq:vdp} sous forme d'un development perturbative valide pour $\epsilon \ll 1$. En particulier, on va utiliser la méthode de Lindstedt, 
+qui nous permet de prendre en compte la dépendence qu'a $\epsilon$ sur la fréquence d'oscillations. L'approche consiste à définir une echelle de temps dilaté et de prendre la fréquence $\omega$ du cycle limite comme étant un inconnu qui dépend de $\epsilon$ :
 \begin{equation}
     \tau = \omega(\epsilon)t
     \qquad
     \omega(\epsilon) = \omega_0 + \epsilon\omega_1 + \epsilon^2\omega_2 + O(\epsilon^3)
+    \label{eq:omega_eps}
 \end{equation}
-La justification derrière cette transformation d'echelle de temps est qu'elle nous permet de définir $x(\tau)$ comme étant $2\pi$ periodique, 
-alors que $x(t)$ à une periode qui nous est inconnue en raison de sa dépendence sur $\omega$.
-
+En resolvant l'équation sous cette nouvelle echelle de temps, on permet à la solution approximative de prendre compte de ce décalement de fréquence.
+Ce qui n'est pas le cas de la méthode perturbative classique.
+%La justification derrière cette transformation d'echelle est qu'elle donne à notre solution approximative la possibilité d'avoir une fréquence dépendante de $\epsilon$.
+%La justification derrière cette transformation d'echelle de temps est qu'elle nous permet de définir $x(\tau)$ comme étant $2\pi$ periodique, 
+%alors que $x(t)$ à une periode qui nous est encore inconnue en raison de sa dépendence sur $\omega$.
 \begin{equation}
-    x(t, \epsilon) = x_0(t) + \epsilon x_1(t) + \epsilon^2 x_2(t) + O(\epsilon^3)
+    x(\tau, \epsilon) = x_0(\tau) + \epsilon x_1(\tau) + \epsilon^2 x_2(\tau) + O(\epsilon^3)
+    \label{eq:x_eps}
+\end{equation}
+Les termes à l’ordre zéro dans les développments correspondent aux solutions de \eqref{eq:vdp} lorsque $\epsilon = 0$.
+Ce sont les termes de base que l’on va chercher à ``perturber” avec des petits termes correcteurs.
+
+Suite à la transformation d'échelle $x(t) \to x(\tau)$, \eqref{eq:vdp} devient :
+\begin{equation}
+    \omega^2x''(\tau) + x''(\tau) + \epsilon\omega \left( x(\tau)^2 - 1 \right)x'(\tau) = 0
+    \label{eq:vdp_linsted}
+\end{equation}
+Où le prime dénote une dérivée par rapport à $\tau$. En substituant \eqref{eq:omega_eps} et \eqref{eq:x_eps} dans \eqref{eq:vdp_linsted} :
+\begin{dmath}
+    (1+\epsilon\omega_1 + \epsilon^2\omega_2)^2(x_0'' + \epsilon x_1'' + \epsilon x_2'') + \epsilon(1+\epsilon\omega_1 + \epsilon^2\omega_2)\left[(x_0 + \epsilon x_1 + \epsilon^2 x_2)^2-1\right](x_0' + \epsilon x_1' + \epsilon^2 x_2') \\
+    + {x_0 + \epsilon x_1 + \epsilon^2 x_2} = 0
+\end{dmath}
+On s’attend à ce que cette  équation soit valide pour tout $\epsilon$, donc les coefficients de $\epsilon^n$ doivent s’annuler indépendamment les un des autres. En négligeant les termes $O(\epsilon^3)$ et en regroupant les coefficients de $e^n$ on obtient les trois équations suivantes :
+\begin{align}
+    \label{eq:O_1}
+    x_0'' + x_0 &= 0  \\
+    \label{eq:O_eps}
+    x_1'' + x_1 &= -2\omega_1 x_0'' - (x_0^2 - 1)x_0' \\
+    \label{eq:O_eps2}
+    x_2'' + x_2 &= -2\omega_2 x_1'' - (2\omega_2 + \omega_1^2)x_0'' - (x_0^2 - 1)x_1' - 2x_0 x_1 x_0' - \omega_1(x_0^2 - 1)x_0'
+\end{align}
+
+%A cause de la periodicité de notre solution, on peut, sans perdre de géneralité, imposer les conditions initiales suivantes.
+
+On peut constater que si on impose des conditions initiales arbitraires $x(0, \epsilon)=A,  \, x'(0, \epsilon)=B$, pour que \eqref{eq:x_eps} soit valide pour tout $\epsilon$ il faut obligatoirement que :
+\begin{equation}
+    x_0(0) = A,\, x_0'(0) = B
+    \qquad
+    x_k(0) = x_k'(0) = 0 \; \forall k > 0
 \end{equation}
 
-
-Notre hypothèse de départ étant que la fréquence $\omega$ du cycle limite est un inconnue qui dépend de $\epsilon$, 
-ce qui fait que $x(t)$ à une periode qui elle aussi est inconnue. 
-En changeant d'échelle de temps, on peut 
-
-dépend de $\epsilon$, la solution $x(t)$ aura donc une période qui lui aussi dépend de $\epsilon$. Or, on aimerai trouver un solution
-
-
+On commence donc par résoudre \eqref{eq1}
