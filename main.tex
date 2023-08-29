@@ -29,8 +29,6 @@
 \usepackage{xcolor}
 \usepackage{tikz}
 \usepackage{tcolorbox}
-\usepackage{comment}
-
 
 \usepackage[hidelinks, colorlinks=true, allcolors=blue]{hyperref}
 
@@ -44,9 +42,10 @@
 
 
 \usepackage{amsmath}
-\usepackage{amsfonts}
+%\usepackage{amsfonts}
 \usepackage{siunitx}
 \usepackage{physics}
+\usepackage{comment}
 
 
 \geometry{a4paper, margin=1.9cm}
@@ -70,11 +69,11 @@
 
 
 
+\setlength{\parindent}{0pt}
 
 
 
-
-\addbibresource{refs/ref_v3.bib}
+\addbibresource{refs/ref_v4.bib}
 
 
 \title{\Huge{Rapport de Stage}}
@@ -96,7 +95,7 @@
 
 \begingroup
 \let\clearpage\relax
-\include{chaptrs/harmonique}
+\input{chaptrs/harmonique}
 \endgroup
 
 \begingroup
@@ -106,7 +105,12 @@
 
 \begingroup
 \let\clearpage\relax
-\include{chaptrs/vdp}
+\input{chaptrs/vdp}
+\endgroup
+
+\begingroup
+\let\clearpage\relax
+\input{chaptrs/vdp_couplee}
 \endgroup
 
 \printbibliography
