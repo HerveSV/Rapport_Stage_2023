@@ -1,8 +1,7 @@
 \chapter{L'oscillateur de Van der Pol}
 %
-L'equation de Duffing forcé
-On s'interesse à l'équation de Van der Pol. Un système imaginé par le physicien Balthasar Van der Pol 
-Qui fut crée en --- par Van der Pol pour modeliser un certain phénomène.
+On s'interesse à l'équation de Van der Pol. Un modèle imaginé par le physicien Balthasar van der Pol
+pendant ses travaux sur des circuit électriques non-linéaires utilisées dans les première radios \cite{strogatz_nonlinear_2015}.
 %
 \begin{equation}
     \ddot{x} + x + \epsilon(x^2 - 1)\dot{x} = 0
@@ -10,11 +9,10 @@ Qui fut crée en --- par Van der Pol pour modeliser un certain phénomène.
 \end{equation}
 %
 C'est un système non conservative avec une particuliarité intéressente. 
-Le signe du terme d'ammortissement $\epsilon(x^2 - 1)\dot{x}$ change en fonction... 
-Lorsque $|x|<1$, le coefficient d'ammortissement négatif fournit de l'énergie au système et dans le cas contraire $|x|>1$, il en dissipe. 
+Le signe du terme d'ammortissement $\epsilon(x^2 - 1)\dot{x}$ change en fonction de $x$. 
+Lorsque $|x|<1$, le coefficient d'ammortissement négatif fournit de l'énergie au système, et dans le cas contraire $|x|>1$, il en dissipe. 
 Ce comportement particulier donne lieu a des oscillations entretenue de manière autonome.
 %
-
 %
 \begin{figure}[t]
     \centering
@@ -41,7 +39,7 @@ Ce comportement particulier donne lieu a des oscillations entretenue de manière
 %
 %
 Avec une étude numérique du système sur le plan de phase, on constate que le système tend vers une unique orbite isolée, quelles que soient les conditions initiales imposées. 
-Une telle orbite dans l'espace de phase s'appelle un \emph{cycle limite}. On voit notamment que pour petit $\epsilon$, que le cycle limite est quasi-circulaire, 
+Une telle orbite dans l'espace de phase s'appelle un \emph{cycle limite}. On voit notamment que pour petit $\epsilon$, le cycle limite est quasi-circulaire, 
 alors que pour grand $\epsilon$ le cycle est fortement déformé et caractérisé par des oscillations de relaxations.
 %c'est une oscillation de relaxation a cause des 
 %De ce fait, il est possible de faire une analyse énergetique rudimentaire du système, en supposant que 
@@ -60,7 +58,7 @@ qui nous permet de prendre en compte la dépendence de la fréquence d'oscillati
 \end{equation}
 %
 En resolvant l'équation sous cette nouvelle echelle de temps, on permet à la solution approximative de prendre compte de ce décalement de fréquence.
-Ce qui n'est pas le cas de la méthode perturbative classique.
+Ce que la méthode perturbative classique ne peut pas faire.
 %La justification derrière cette transformation d'echelle est qu'elle donne à notre solution approximative la possibilité d'avoir une fréquence dépendante de $\epsilon$.
 %La justification derrière cette transformation d'echelle de temps est qu'elle nous permet de définir $x(\tau)$ comme étant $2\pi$ periodique, 
 %alors que $x(t)$ à une periode qui nous est encore inconnue en raison de sa dépendence sur $\omega$.
@@ -86,15 +84,16 @@ Où le prime dénote une dérivée par rapport à $\tau$. En substituant \eqref{
     + {x_0 + \epsilon x_1 + \epsilon^2 x_2} = 0
 \end{dmath}
 %
-On s’attend à ce que cette  équation soit valide pour tout $\epsilon$, donc les coefficients de $\epsilon^n$ doivent s’annuler indépendamment les un des autres. En négligeant les termes $O(\epsilon^3)$ et en regroupant les coefficients de $e^n$ on obtient les trois équations suivantes :
+On s’attend à ce que cette  équation soit valide pour tout $\epsilon$, donc les coefficients de $\epsilon^n$ doivent s’annuler indépendamment les un des autres. 
+En négligeant les termes $O(\epsilon^3)$ et en regroupant les coefficients de $e^n$ on obtient les trois équations suivantes :
 %
 \begin{align}
     \label{eq:O_1}
-    x_0'' + x_0 &= 0  \\
+    O(\epsilon^0)\text{:}\qquad      x_0'' + x_0 &= 0  \\
     \label{eq:O_eps}
-    x_1'' + x_1 &= -2\omega_1 x_0'' - (x_0^2 - 1)x_0' \\
+    O(\epsilon^1)\text{:}\qquad      x_1'' + x_1 &= -2\omega_1 x_0'' - (x_0^2 - 1)x_0' \\
     \label{eq:O_eps2}
-    x_2'' + x_2 &= -2\omega_2 x_1'' - (2\omega_2 + \omega_1^2)x_0'' - (x_0^2 - 1)x_1' - 2x_0 x_1 x_0' - \omega_1(x_0^2 - 1)x_0'
+    O(\epsilon^2)\text{:}\qquad      x_2'' + x_2 &= -2\omega_2 x_1'' - (2\omega_2 + \omega_1^2)x_0'' - (x_0^2 - 1)x_1' - 2x_0 x_1 x_0' - \omega_1(x_0^2 - 1)x_0'
 \end{align}
 %
 %A cause de la periodicité de notre solution, on peut, sans perdre de géneralité, imposer les conditions initiales suivantes.
@@ -108,7 +107,7 @@ soit valide pour tout $\epsilon$ il faut obligatoirement que :
     x_k(0) = x_k'(0) = 0 \; \forall k > 0
 \end{equation}
 %
-On commence donc par résoudre \eqref{eq:O_1} qui correspond à l'oscillateur harmonique de base :
+On commence donc par résoudre \eqref{eq:O_1}, qui correspond à l'oscillateur harmonique de base :
 %
 \begin{equation}
     x_0(\tau) = A \cos(\tau + \phi_B)
@@ -124,7 +123,7 @@ ce qui est équivalent à imposer la condition $B = 0$. On résout alors \eqref{
 %
 On remarque la présence de termes résonant (aussi appellé termes séculaires) de type $k\cos(\tau)$ et $k\sin(\tau)$ dans l'équation. 
 Or, si on cherche à trouver une solution periodique, les coefficients de ces termes résonants doivent s'annuler.
-En effet, ils donnent lieu à des solutions de la forme $k'\tau \sin(\tau)$ qui ne sont pas bornée avec le temps.
+En effet, ils donnent lieu à des solutions de la forme $k' \tau \sin(\tau)$ qui ne sont pas bornée avec le temps.
 En appliquant cette condition de periodicité :
 %
 \begin{equation}
@@ -134,7 +133,7 @@ En appliquant cette condition de periodicité :
 \end{equation}
 %
 $A=0$ correspond à la solution stationnaire instable du système et $A=-2$ correspond à une différence de phase de $\pi$ par rapport à $A=2$. On conclut donc que $\omega_1 = 0$ et que $A=2$. 
-Selon la dernière condition, on conclut que pour $\epsilon$ quelconque non-nulle, seule l'orbite circulaire de rayon $2$ (sur le plan de phase) reste une solution possible.
+Selon la dernière condition, on conclut que pour $\epsilon$ quelconque non-nulle, seule l'orbite circulaire de rayon $2$ (sur le plan de phase) reste solution periodique.
 %La dernière condition en particulier nous dit que dès que $\epsilon$ devient non-nulle, seule l'orbite circulaire de rayon $2$ (sur le plan de phase) reste possible.
 %toutes les orbites circulaires sur le plan de phase sont détruits, sauf celui avec un rayon de $2$. 
 En effet, le système converge vers une unique solution periodique - un cycle limite.
@@ -207,7 +206,7 @@ On fait l'observation que le système Van der Pol n'a pas de fréquence de réf�
 On retrouve aussi les deux solutions stationnaires stable et instable à $r=2$ et $r=0$ trouvé auparavent avec la méthode de Linstedt. On peut résoudre la première equation par séparation des variables pour le cas $r \neq 2$ :
 %
 \begin{equation}
-    r = 2 \sqrt{ \frac{A}{A + e^{-\epsilon t}} }
+    r(t) = 2 \sqrt{ \frac{A}{A + e^{-\epsilon t}} }
     \qquad
     \text{Où}
     \qquad 
@@ -230,4 +229,4 @@ On retrouve aussi les deux solutions stationnaires stable et instable à $r=2$ e
 \end{figure}
 %
 Dans {fig. \ref{fig:vdp_approx}} on voit que l'approximation obtenue par le moyennement est légèrement en avance par rapport à la solution numérique, on peut attribuer cela à l'approximation $\omega \approx 1$ qui à été fait en négligeant les termes en $\epsilon^2$. 
-De ce fait, l'approximation n'est que fiable jusqu'à des temps de l'ordre $O\left( \frac{1}{\epsilon^2} \right)$.
+De ce fait, l'approximation n'est que fiable jusqu'à des temps de l'ordre $O\left( \frac{1}{\epsilon^2} \right)$ car au delà de ça le décalage entre la solution et l'approximation devient non-négligeable.

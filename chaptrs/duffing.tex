@@ -1,9 +1,9 @@
 \chapter{L'oscillateur de Duffing forcé}
-
+%
 Considéront de nouveau un oscillateur forcé, mais maintenant avec un terme en $x^3$ supplémentaire, nous donnant l'équation de Duffing forcé. Ce n'est plus une équation linéaire, donc on ne peut plus exprimer la solution comme étant une superposition des solutions homogènes et particulières.
-
+%
 %Limite faible de $\epsilon$
-
+%
 \begin{equation}
     \ddot{x} + \gamma \dot{x} + \omega_0^2 x + \epsilon x^3 = \epsilon f_0 \cos(\omega t)
     \label{eq:duffing}
@@ -30,9 +30,9 @@ Donc si $\gamma \ll \omega$,  $r$ et $\phi$ vont varier
 %
 En notation exponentielle :
 \begin{equation}
-    x(t) = z(t)e^{i\omega t} + z(t)^* e^{-i\omega t}
+    x(t) = z(t)e^{i\omega t} + \bar{z}(t) e^{-i\omega t}
     \qquad 
-    \dot{x}(t) = i\omega \left[ z(t)e^{i\omega t} - z(t)^* e^{-i\omega t} \right]
+    \dot{x}(t) = i\omega \left[ z(t)e^{i\omega t} - \bar{z}(t) e^{-i\omega t} \right]
 \end{equation}
 %
 $z(t)$ étant une variable complexe encodant l'amplitude et la phase d'oscillations du système.
@@ -44,24 +44,24 @@ Lorsque l'oscillateur oscille de manière harmonique, $z$ est constant \cite{pis
 
 En prenant la dérivée de \eqref{eq:duff_x_xdot}, on obtient :
 \begin{equation}
-    \dot{x}(t) = \dot{z}(t)e^{i\omega t} + \dot{z}(t)^* e^{-i\omega t} + i\omega \left[ z(t)e^{i\omega t} - z(t)^* e^{-i\omega t} \right]
+    \dot{x}(t) = \dot{z}(t)e^{i\omega t} + \dot{\bar{z}}(t) e^{-i\omega t} + i\omega \left[ z(t)e^{i\omega t} - \bar{z}(t) e^{-i\omega t} \right]
     \label{eq:duff_x}
 \end{equation}
 \begin{equation}
-    \ddot{x}(t) = i\omega \left[ \dot{z}(t)e^{i\omega t} - \dot{z}(t)^* e^{-i\omega t} \right] + (i\omega)^2 \left[ z(t)e^{i\omega t} + z(t)^* e^{-i\omega t} \right]
+    \ddot{x}(t) = i\omega \left[ \dot{z}(t)e^{i\omega t} - \dot{\bar{z}}(t) e^{-i\omega t} \right] + (i\omega)^2 \left[ z(t)e^{i\omega t} + \bar{z}(t) e^{-i\omega t} \right]
 \end{equation}
 À partir de \eqref{eq:duff_x_xdot} et de \eqref{eq:duff_x}, on obtient la condition :
 \begin{equation}
-    \dot{z}(t)e^{i\omega t} + \dot{z}(t)^* e^{-i\omega t} = 0
+    \dot{z}(t)e^{i\omega t} + \dot{\bar{z}}(t) e^{-i\omega t} = 0
 \end{equation}
 %
 En substituant les equations de $x$, $\dot{x}$, et de $\ddot{x}$ dans \eqref{eq:duffing} :
 %
 \begin{dmath}
-    2i\omega \dot{z}(t)e^{i\omega t} + (i\omega)^2 \left[ z(t)e^{i\omega t} + z(t)^* e^{-i\omega t} \right]
-    + i\gamma\omega \left[ z(t)e^{i\omega t} - z(t)^* e^{-i\omega t} \right] \\
-    + \omega_0^2 \left[ z(t)e^{i\omega t} + z(t)^* e^{-i\omega t} \right]
-    + \epsilon \left[ z(t)e^{i\omega t} + z(t)^* e^{-i\omega t} \right]^3 = \epsilon \frac{f_0}{2}\left[ e^{i\omega t} + e^{-i\omega t} \right]
+    2i\omega \dot{z}(t)e^{i\omega t} + (i\omega)^2 \left[ z(t)e^{i\omega t} + \bar{z}(t) e^{-i\omega t} \right]
+    + i\gamma\omega \left[ z(t)e^{i\omega t} - \bar{z}(t) e^{-i\omega t} \right] \\
+    + \omega_0^2 \left[ z(t)e^{i\omega t} + \bar{z}(t) e^{-i\omega t} \right]
+    + \epsilon \left[ z(t)e^{i\omega t} + \bar{z}(t) e^{-i\omega t} \right]^3 = \epsilon \frac{f_0}{2}\left[ e^{i\omega t} + e^{-i\omega t} \right]
 \end{dmath}
 Puis en multipliant par $e^{-i\omega t}$ :
 \begin{dmath}
@@ -76,10 +76,10 @@ Puis en multipliant par $e^{-i\omega t}$ :
 \section{La méthode de moyennement}
 %
 Jusqu'ici, tout est éxacte. On procède ensuite par une opération de moyennement, qui exploite les deux echelles de temps observé dans notre système. 
-Une échelle `rapide' marqué par des oscillations rapides avec des periodes de l'ordre $T = 2\pi / \omega$, 
+Une échelle `rapide' marqué par des oscillations avec des periodes de l'ordre $T = 2\pi / \omega$, 
 et une échelle `lente' selon laquelle évolue $z(t)$. 
 
-La méthode de moyennement consiste à remarquer qu'étant donné que $z$ évolue très lentement, 
+La méthode de moyennement consiste à remarquer que puisque $z$ évolue très lentement, 
 il reste quasiment constant au cours d'une periode d'oscillation rapide $T$. 
 Donc on se permet de traiter $z(t)$ comme étant égale à sa moyenne sur une oscillation $\langle z \rangle$, $\langle z \rangle$ étant constant sur une periode d'oscillation. 
 On appelle cela le moyennement au premier ordre \cite{rand_lecture_nodate}.
@@ -185,15 +185,15 @@ Cependant, il est possible d'exprimer $\Omega$ en fonction de $|q_0|$ :
     \Omega = |q_0|^2 \pm \sqrt{\frac{F_0^2}{|q_0|^2} - 1 }
 \end{equation}
 %
-Où $\pm \sqrt{\frac{F_0^2}{|q_0|^2} - 1 }$ correspondant à une lorentzienne pure, et $|q_0|^2$ forme 
+Où $\pm \sqrt{\frac{F_0^2}{|q_0|^2} - 1 }$ correspondant à la lorentzienne pure, et $|q_0|^2$ forme 
 une épine (\emph{backbone} en anglais) qui donne la forme caracterstique de cette réponse fréquentielle non-linéaire.
 %
-Pour $F_0 \to 0$ la réponse devient lorenzienne. Effectivement, comme $F_0 \propto \sqrt{\gamma} f_0$, 
-si le coefficient de non-linéarité est nulle ou négligeable (et $f_0$ pas trop grand), alors le système 
-se comportera comme un oscillateur harmonique.
+Pour $F_0 \to 0$ la réponse devient lorenzienne. À mesure de $F_0$ augmente, la courbe de la réponse fréquentielle va se déformer en suivant la \emph{backbone}.
+% Effectivement, si le coefficient de non-linéarité $\epsilon$ est négligeable, 
+% alors on s'attend à un comportement qui se rapproche de l'oscillateur harmonique.
+% Or, pour avoir $F_0$ petit, il faut aussi que $f_0$
 
-On observe aussi qu'il existe une valeur critique $F_{0,c}$ où pour $F_0 > F_{0,c}$ le système admet 
-jusqu'à trois amplitudes possible, dont deux stables \cite{landau_mechanics_1976}. On parle alors d'un état bistable.
+On observe aussi qu'il existe une valeur critique $F_{0,c}$, où pour $F_0 > F_{0,c}$ le système admet trois amplitudes possible, dont deux stables \cite{landau_mechanics_1976}. On parle alors d'un état bistable.
 %
 \begin{figure}
     
@@ -213,12 +213,13 @@ jusqu'à trois amplitudes possible, dont deux stables \cite{landau_mechanics_197
     \end{subcaptionblock}
     \caption{Réponse fréquentielle de Duffing}
 \end{figure}
+
 On cherche à déterminer la valeur de $F_{0, c}$. Pour alléger la notation, 
 on introduit la variable $u = |q_0|$ et on réarrange \eqref{eq:duff_stationnaire} :
 %
 \begin{equation}
     u^2[(u^2 - \Omega)^2 + 1] = F_0^2
-    \label{eq:duffing_stationnaire_u}
+    \label{eq:duffing_stationnaire_in_u}
 \end{equation}
 %
 Puis on prend la dérivée par rapport à $\Omega$.
@@ -251,7 +252,7 @@ La bistabilité apparait lorsque qu'il y a plusieurs points sur la courbe satisf
     3u^4 + \Omega^2 - 4\Omega u^2 + 1 = 0
 \end{equation}
 %
-Lorsque $F_0 = F_{0,c}$, il existe une unique solution en $u$. On peut donc résoudre pour $u^2$ en posant que le déterminant s'annulle. On obtient les conditions :
+Lorsque $F_0 = F_{0,c}$, il existe une unique solution en $u$. On peut donc résoudre pour $u^2$ en posant que le déterminant de l'équation quadratique s'annulle. On obtient les conditions :
 %
 \begin{equation}
     \Omega = \pm \sqrt{3}
@@ -259,7 +260,7 @@ Lorsque $F_0 = F_{0,c}$, il existe une unique solution en $u$. On peut donc rés
     u^2 = \frac{2\Omega}{3}
 \end{equation}
 %
-Ce qui nous impose la solution unique $\Omega = \sqrt{3}$. En substituant ces valeurs dans \eqref{eq:duff_stationnaire_u}, on trouve :
+Ce qui nous impose la solution unique $\Omega = \sqrt{3}$. En substituant ces valeurs dans \eqref{eq:duffing_stationnaire_in_u}, on trouve :
 %
 \begin{equation}
     F_{0,c} = \left(  \frac{8\sqrt{3}}{9}  \right)^{1/2}
@@ -268,5 +269,4 @@ Ce qui nous impose la solution unique $\Omega = \sqrt{3}$. En substituant ces va
 Un observation finale interessante. Etant donné que $F_0 \propto \epsilon^{3/2}f_0$, 
 on voit que même dans un système ou le terme nonlinéaire est très faible, où normalement 
 on ne va pas observer de non-linéarité. Il suffit d'augmenter l'amplitude de forçage $f_0$ 
-pour que faire ressortir un comportement non-linéaire (ici un état bistable). L'oscillateur harmonique, 
-n'est donc qu'une appromation valable à des amplitudes relativement faibles.
+pour que faire ressortir un comportement non-linéaire (ici un état bistable). L'oscillateur harmonique pour modéliser les situations physiques n'est donc qu'une approximation valable à des amplitudes et à des forces relativement faibles.

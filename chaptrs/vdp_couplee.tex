@@ -1,6 +1,6 @@
 \chapter{Étude de deux oscillateurs Van der Pol couplés}
 %
-On étudie le système suivant, composé de deux oscillateurs de Van der Pol identiques couplé par une force de rappel linéaire relativement faible.
+Étudions maintenant le système suivant, composé de deux oscillateurs de Van der Pol identiques couplé par une force de rappel linéaire relativement faible.
 %
 \begin{equation}
   \left\{\begin{array}{@{}l@{}}
@@ -38,7 +38,7 @@ On sépare les parties réelles et imaginaires et on obtient un système d'équa
 Or, l'oscillateur de Van der Pol n'ayant pas de phase de référence (sa phase n'étant pas fixée par une force exterieure), 
 %la phase des deux oscillateurs peuvent se synchroniser. En effet, 
 l'évolution du système ne dépend que de la différence entre les phases des oscillateurs. 
-On peut donc réduire le système à un système de trois équations en introduisant la variable de déphasage $\Theta = \phi_2 - \phi_1$ :
+On peut donc réduire le système à trois équations en introduisant la variable de déphasage $\Theta = \phi_2 - \phi_1$ :
 %
 \begin{equation}
     \left\{\begin{array}{@{}l@{}}
@@ -148,9 +148,9 @@ Dans le cas général, il est possible d'écrire $\delta\vb{x}$ sous forme d'une
 %
 \[ \delta\vb{x} = c_1 e^{\lambda_1 t}\vb{v}_1 + c_2 e^{\lambda_2 t}\vb{v}_2 + c_3 e^{\lambda_3 t}\vb{v}_3\]
 %
-Avec $\vb{v_i}$ et $\lambda_i$ les vecteurs et valeurs propres correspondants, qui ne se ni strictement réel ni strictement distinct l'un des autres.
+Avec $\vb{v}_j$ et $\lambda_j$ les vecteurs et valeurs propres correspondants, qui ne se ni strictement réel ni strictement distinct l'un des autres.
 %
-Pour un point stationnaire donné, si $\lambda_i < 0$ pour $j = 1, 2, 3$ alors, on voit que la perturbation $\delta\vb{x}$ décroit avec le temps, donc le point stationnaire est stable. Sinon, le point est instable.
+Pour un point stationnaire donné, si $\lambda_j < 0$ pour $j = 1, 2, 3$ alors, on voit que la perturbation $\delta\vb{x}$ décroit avec le temps, donc le point stationnaire est stable. Sinon, le point est instable.
 %
 On s'intéresse donc surtout aux signes des valeurs propres de $M$.
 %
@@ -224,24 +224,6 @@ On trouve la même équation caractéristique pour $M_2$, qui peut être résolu
   \end{array}\right.\,
 \end{equation}
 %
-Il est évident que $\lambda_1$ est strictement négatif. %$\lambda_1 < 0 \ \forall k$
-Et pour $0 \leq |k| \leq \frac{1}{2} $ on voit bien que $\sqrt{\epsilon^2 - 4\epsilon^2k^2} \leq \epsilon$, donc :
-\[ -\epsilon \leq \lambda_2 \leq -\frac{\epsilon}{2} \qquad -\frac{\epsilon}{2} \leq \lambda_3 \leq 0\]
-%
-Lorsque $|k| > \frac{1}{2}$, $\lambda_2$ et $\lambda_3$ devienne un couple de complexes conjugués. Géométriquement, cela correspond à des trajectoires spirales oscillant autour du point stationnaire – effectivement, on peut vérifier numériquement que $r_1$, $r_2$ et $\Theta$ oscillent dans ces cas-là. La stabilité est déterminée par la partie réelle des valeurs propres. Or :
-\[ \Re(\lambda_2) = \Re(\lambda_3) = -\frac{\epsilon}{2} \]
-%
-La partie réelle des trois valeurs propres étant toujours négatives, 
-on voit donc que dans le cadre de notre approximation, les points stationnaires $(2, 2, 0)$, $(2, 2, \pi)$ sont stables pour tout $k$. 
-Ce qui nous montre que les deux oscillateurs peuvent se synchroniser soit en phase ou en anti-phase. 
-On n'a pas éliminé la possibilité que l'oscillateur ne se synchronise pas. 
-Pour cela, il faudrait étudier de plus près l'étendu des bassins d'attraction - s'il y a des conditions 'neutres' 
-qui ne donnent pas lieu à de la synchronisation
-
-Étant donné que les valeurs propres sont identiques pour les deux points stationnaires, 
-on s'attend a ce que les deux configurations synchronisées soient aussi stables l'une que l'autre. 
-Donc, l'état synchronisé que va choisir le système va dépendre des conditions initiales.
-
 \begin{figure}
     \centering
     % \begin{subcaptionblock}{.95\linewidth}
@@ -255,11 +237,32 @@ Donc, l'état synchronisé que va choisir le système va dépendre des condition
     }
     \hfill
     \subcaptionbox{}[.60\linewidth]{%
-        \includegraphics[width=\linewidth]{images/couplee/smaller_notitle_k=1_x0=[0.038,-0.018,0.265,-0.486]_ϵ=0.1.png}%
-        \label{fig:comparaison}
+        \includegraphics[width=\linewidth]{images/couplee/notitle_k=1_x0=[0.038,-0.018,0.265,-0.486]_ϵ=0.1.png}%
+        \label{fig:comparison}
     }
+    \label{fig:yeet}
     \caption{\textbf{(a)} Tracé de la partie réelle des valeurs propres $\lambda_i$ en fonction de $k$, $\epsilon=0.2$. 
-        \textbf{(b)} Comparaison graphique du système original \eqref{eq:coupled_vdp} avec le système moyenné \eqref{eq:slow_flow} faite par intégration numérique – $x_1(0)=0.038$, $x_2(0)=0.265$, $\dot{x}_1(0)=-0.018$, $\dot{x}4_2(0)=-0.486$, $\epsilon=0.1$, $k=1$}
+        \textbf{(b)} Comparaison graphique du système original \eqref{eq:coupled_vdp} avec le système moyenné \eqref{eq:slow_flow} faite par intégration numérique – $x_1(0)=0.038$, $x_2(0)=0.265$, $\dot{x}_1(0)=-0.018$, $\dot{x}_2(0)=-0.486$, $\epsilon=0.1$, $k=1$}
     
 \end{figure}
 %
+Il est évident que $\lambda_1$ est strictement négatif. %$\lambda_1 < 0 \ \forall k$
+Et pour $0 \leq |k| \leq \frac{1}{2} $ on voit bien que $\sqrt{\epsilon^2 - 4\epsilon^2k^2} \leq \epsilon$, donc :
+\[ -\epsilon \leq \lambda_2 \leq -\frac{\epsilon}{2} \qquad -\frac{\epsilon}{2} \leq \lambda_3 \leq 0\]
+%
+Lorsque $|k| > \frac{1}{2}$, $\lambda_2$ et $\lambda_3$ devienne un couple de complexes conjugués. 
+Géométriquement, cela correspond à des trajectoires spirales oscillant autour du point stationnaire 
+– effectivement, on peut vérifier numériquement que $r_1$, $r_2$ et $\Theta$ oscillent dans ces cas-là (fig. \ref{fig:comparison}). 
+La stabilité est déterminée par la partie réelle des valeurs propres. Or :
+\[ \Re(\lambda_2) = \Re(\lambda_3) = -\frac{\epsilon}{2} \]
+%
+La partie réelle des trois valeurs propres étant toujours négatives, 
+on voit donc que dans le cadre de notre approximation, les points stationnaires $(2, 2, 0)$, $(2, 2, \pi)$ sont stables pour tout $k$. 
+Ce qui nous montre que les deux oscillateurs peuvent se synchroniser soit en phase ou en anti-phase. 
+On n'a pas éliminé la possibilité que l'oscillateur ne se synchronise pas, ni qu'il pourrait y avoir d'autres solutions stables. 
+Pour cela, il faudrait étudier de plus près l'étendu des bassins d'attraction - s'il y a des conditions 'neutres' 
+qui ne donnent pas lieu à de la synchronisation
+
+Étant donné que les valeurs propres sont identiques pour les deux points stationnaires, 
+on s'attend a ce que les deux configurations synchronisées soient aussi stables l'une que l'autre. 
+Donc, l'état synchronisé que va choisir le système va dépendre des conditions initiales.
