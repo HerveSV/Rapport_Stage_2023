@@ -1,55 +1,71 @@
 \chapter{L'oscillateur de Van der Pol}
 %
-On s'interesse à l'équation de Van der Pol. Un modèle imaginé par le physicien Balthasar van der Pol
-pendant ses travaux sur des circuit électriques non-linéaires utilisées dans les première radios \cite{strogatz_nonlinear_2015}.
+On s'intéresse ensuite à l'équation de Van der Pol. Un modèle imaginé par le physicien Balthasar van der Pol
+pendant ses travaux sur des circuits électriques non-linéaires utilisées dans les premières radios \cite{strogatz_nonlinear_2015}.
 %
 \begin{equation}
     \ddot{x} + x + \epsilon(x^2 - 1)\dot{x} = 0
     \label{eq:vdp}
 \end{equation}
 %
-C'est un système non conservative avec une particuliarité intéressente. 
-Le signe du terme d'ammortissement $\epsilon(x^2 - 1)\dot{x}$ change en fonction de $x$. 
-Lorsque $|x|<1$, le coefficient d'ammortissement négatif fournit de l'énergie au système, et dans le cas contraire $|x|>1$, il en dissipe. 
-Ce comportement particulier donne lieu a des oscillations entretenue de manière autonome.
-%
+C'est un système non conservatif avec une particularité intéressante. 
+Le signe du terme d'amortissement $\epsilon(x^2 - 1)\dot{x}$ change en fonction de $x$. 
+Lorsque $|x|<1$, le coefficient d'amortissement négatif fournit de l'énergie au système, et dans le cas contraire $|x|>1$, il en dissipe. 
+Ce comportement particulier donne lieu a des oscillations entretenues de manière autonome.
+
 %
 \begin{figure}[t]
     \centering
-    \begin{subcaptionblock}{0.9\linewidth}
+    \begin{subfigure}[b]{0.9\textwidth}
         %\hfill
-        \includegraphics[width=.45\linewidth]{images/vdp/vanderpol_small.png}%
+        \begin{subfigure}[b]{.47\textwidth}
+            \includegraphics[width=\textwidth]{images/vdp/vanderpol_small.png}%
+            \caption{}
+        \end{subfigure}
         \hfill
-        \includegraphics[width=.45\linewidth]{images/vdp/vanderpol_small_x.png}%
-        %\hfill
-        %\centering
-        %\caption{$\epsilon = 0.1$}
-    \end{subcaptionblock}
+        \begin{subfigure}[b]{.47\textwidth}
+            \includegraphics[width=\textwidth]{images/vdp/vanderpol_small_x.png}%
+            \caption{}
+        \end{subfigure}
+        %\caption{}
+    \end{subfigure}
     %\hfil
     \centering
-    \begin{subcaptionblock}{0.9\linewidth}
-        \includegraphics[width=.45\linewidth]{images/vdp/vanderpol_large.png}%
+    \begin{subfigure}[b]{0.9\textwidth}
+        \begin{subfigure}[b]{.47\textwidth}
+            \includegraphics[width=\textwidth]{images/vdp/vanderpol_large.png}%
+            \caption{}
+        \end{subfigure}
         \hfill
-        \includegraphics[width=.45\linewidth]{images/vdp/vanderpol_large_x.png}%
+        \begin{subfigure}[b]{.47\textwidth}
+            \includegraphics[width=\textwidth]{images/vdp/vanderpol_large_x.png}%
+            \caption{}
+        \end{subfigure}
         %\caption{$\epsilon = 5$}
-    \end{subcaptionblock}
+        %\caption{}
+    \end{subfigure}
+    
+    \caption{Portraits de phase et tracés de l'amplitude de l'oscillateur de Van der Pol, obtenus par intégration numérique avec conditions initiales aléatoires \textbf{(a)} Portrait de phase, $\epsilon=0.1$ \textbf{(b)} Traçé $x$ contre $t$, $\epsilon=0.1$ \textbf{(c)} Portrait de phase, $\epsilon=10$ \textbf{(d)} Traçé $x$ contre $t$, $\epsilon=10$}
     \label{fig:portrait_vdp}
-    \caption{Portraits de phase de l'oscillateur Van der Pol obtenu par intégration numérique pour faible et grand $\epsilon$, conditions initiales aléatoires}
+    
 \end{figure}
 %
 %
-Avec une étude numérique du système sur le plan de phase, on constate que le système tend vers une unique orbite isolée, quelles que soient les conditions initiales imposées. 
+Avec une étude numérique du système sur le plan de phase, on constate qu'il tend vers une unique orbite isolée, quelles que soient les conditions initiales imposées. 
 Une telle orbite dans l'espace de phase s'appelle un \emph{cycle limite}. On voit notamment que pour petit $\epsilon$, le cycle limite est quasi-circulaire, 
-alors que pour grand $\epsilon$ le cycle est fortement déformé et caractérisé par des oscillations de relaxations.
+alors que pour grand $\epsilon$ le cycle est fortement déformé et caractérisé par des oscillations de relaxations \cite{rand_lecture_2012}.
 %c'est une oscillation de relaxation a cause des 
 %De ce fait, il est possible de faire une analyse énergetique rudimentaire du système, en supposant que 
 %
 \section{Étude du cycle limite}
 %
-En comparent les oscillations des système faiblement et fortement non-linéaire, on observe aussi que la fréquence d'oscillation diverge de la fréquence naturelle $\omega_0 = 1$ lorsque $\epsilon$ augmente. 
 %Cette remarque, faite en premier par Lindstedt, va nous inspirer à chercher une solution approximative de \eqref{eq:vdp} sous forme d'un development perturbative
-On va chercher une solution approximative pour le cycle limite de \eqref{eq:vdp} sous forme d'un development perturbative valide pour $\epsilon \ll 1$. En particulier, on va utiliser la méthode de Lindstedt, 
-qui nous permet de prendre en compte la dépendence de la fréquence d'oscillations sur $\epsilon$. L'approche consiste à définir une echelle de temps dilaté $\tau$ et de prendre la fréquence $\omega$ du cycle limite comme étant un inconnu qui dépend de $\epsilon$ :
+On cherche une solution approximative pour le cycle limite de \eqref{eq:vdp} sous forme d'un développement perturbative valide pour $\epsilon \ll 1$. 
+En comparant les systèmes faiblement et fortement non-linéaire (fig. \ref{fig:portrait_vdp}), on observe que la fréquence d'oscillation diverge de la fréquence naturelle $\omega_0 = 1$ lorsque $\epsilon$ augmente. 
+En raison de cela, on va utiliser la méthode de Lindstedt \cite{rand_lecture_2012}, 
+qui nous permet de prendre en compte la dépendance de la fréquence d'oscillations sur $\epsilon$. 
+
+L'approche consiste à définir une échelle de temps dilaté $\tau$ et de prendre la fréquence $\omega$ du cycle limite comme étant un inconnu qui dépend de $\epsilon$ :
 \begin{equation}
     \tau = \omega t
     \qquad
@@ -57,7 +73,7 @@ qui nous permet de prendre en compte la dépendence de la fréquence d'oscillati
     \label{eq:omega_eps}
 \end{equation}
 %
-En resolvant l'équation sous cette nouvelle echelle de temps, on permet à la solution approximative de prendre compte de ce décalement de fréquence.
+En résolvant l'équation sous cette nouvelle échelle de temps, on permet à la solution approximative de prendre compte de ce décalage de fréquence.
 Ce que la méthode perturbative classique ne peut pas faire.
 %La justification derrière cette transformation d'echelle est qu'elle donne à notre solution approximative la possibilité d'avoir une fréquence dépendante de $\epsilon$.
 %La justification derrière cette transformation d'echelle de temps est qu'elle nous permet de définir $x(\tau)$ comme étant $2\pi$ periodique, 
@@ -67,7 +83,7 @@ Ce que la méthode perturbative classique ne peut pas faire.
     \label{eq:x_eps}
 \end{equation}
 %
-Les termes à l’ordre zéro dans les développments correspondent aux solutions de \eqref{eq:vdp} lorsque $\epsilon = 0$.
+Les termes à l’ordre zéro dans les développements correspondent aux solutions de \eqref{eq:vdp} lorsque $\epsilon = 0$.
 Ce sont les termes de base que l’on va chercher à ``perturber” avec des petits termes correcteurs.
 %
 Suite à la transformation d'échelle $x(t) \to x(\tau)$, \eqref{eq:vdp} devient :
@@ -85,7 +101,7 @@ Où le prime dénote une dérivée par rapport à $\tau$. En substituant \eqref{
 \end{dmath}
 %
 On s’attend à ce que cette  équation soit valide pour tout $\epsilon$, donc les coefficients de $\epsilon^n$ doivent s’annuler indépendamment les un des autres. 
-En négligeant les termes $O(\epsilon^3)$ et en regroupant les coefficients de $e^n$ on obtient les trois équations suivantes :
+En négligeant les termes $O(\epsilon^3)$ et en regroupant les coefficients de $\epsilon^n$ on obtient les trois équations suivantes :
 %
 \begin{align}
     \label{eq:O_1}
@@ -113,7 +129,7 @@ On commence donc par résoudre \eqref{eq:O_1}, qui correspond à l'oscillateur h
     x_0(\tau) = A \cos(\tau + \phi_B)
 \end{equation}
 %
-En raison de la nature autonome de \eqref{eq:O_1} (l'absence explicite du temps), on est libre de choisir l'origine du temps de tel sorte à éliminer la phase $\phi_B$, 
+En raison de la nature autonome de \eqref{eq:O_1} (l'absence explicite du temps), on est libre de choisir l'origine du temps de telle sorte à éliminer la phase $\phi_B$, 
 ce qui est équivalent à imposer la condition $B = 0$. On résout alors \eqref{eq:O_eps} en y substituant l’expression de $x_0$ :
 %
 \begin{dmath}
@@ -121,10 +137,10 @@ ce qui est équivalent à imposer la condition $B = 0$. On résout alors \eqref{
     = 2\omega_1 A \cos(\tau) + (\frac{1}{4}A^3 - A)\sin(\tau) + \frac{1}{4}A^3 \sin(3\tau)
 \end{dmath}
 %
-On remarque la présence de termes résonant (aussi appellé termes séculaires) de type $k\cos(\tau)$ et $k\sin(\tau)$ dans l'équation. 
+On remarque la présence de termes résonants (aussi appellé termes séculaires) de type $k\cos(\tau)$ et $k\sin(\tau)$ dans l'équation. 
 Or, si on cherche à trouver une solution periodique, les coefficients de ces termes résonants doivent s'annuler.
-En effet, ils donnent lieu à des solutions de la forme $k' \tau \sin(\tau)$ qui ne sont pas bornée avec le temps.
-En appliquant cette condition de periodicité :
+En effet, ils donnent lieu à des solutions de la forme $k' \tau \sin(\tau)$ qui ne sont pas bornées avec le temps.
+En appliquant cette condition de périodicité :
 %
 \begin{equation}
     2\omega_1 A  = 0
@@ -132,13 +148,13 @@ En appliquant cette condition de periodicité :
     \frac{1}{4}A^3 - A = 0
 \end{equation}
 %
-$A=0$ correspond à la solution stationnaire instable du système et $A=-2$ correspond à une différence de phase de $\pi$ par rapport à $A=2$. On conclut donc que $\omega_1 = 0$ et que $A=2$. 
+$A=0$ correspond à la solution stationnaire instable du système et $A=-2$ correspond à une différence de phase de $\pi$ par rapport à $A=2$. On conclut donc (sans perte de généralité) que $\omega_1 = 0$ et que $A=2$. 
 Selon la dernière condition, on conclut que pour $\epsilon$ quelconque non-nulle, seule l'orbite circulaire de rayon $2$ (sur le plan de phase) reste solution periodique.
 %La dernière condition en particulier nous dit que dès que $\epsilon$ devient non-nulle, seule l'orbite circulaire de rayon $2$ (sur le plan de phase) reste possible.
 %toutes les orbites circulaires sur le plan de phase sont détruits, sauf celui avec un rayon de $2$. 
 En effet, le système converge vers une unique solution periodique - un cycle limite.
 
-Maintenant on résout $x_1'' + x_1 = 2\sin(3\tau)$ en appliquant les conditions initiales :
+Ensuite, on résout $x_1'' + x_1 = 2\sin(3\tau)$ en appliquant les conditions initiales :
 \begin{equation}
     x_1 = \frac{3}{4}\sin(\tau) - \frac{1}{4}\sin(3\tau)
 \end{equation}
@@ -159,16 +175,16 @@ Donc, pour éliminer le terme résonant, il faut que $\omega_2 = -\frac{1}{16}$.
 \begin{equation}
     \omega = 1 - \frac{1}{16}\epsilon^2 + O(\epsilon^3)
 \end{equation}
-
+%
 \section{Étude de l'état transitoire}
-
+%
 \begin{comment}
     We now know the oscillation frequency for the limit cycle. 
     However we don't know how the oscillation frequency evolves as it reaches steady state.
     I suppose we just assume that the frequency of the oscillator during the transient period is just close enough
     to the steady state frequncy.
 \end{comment}
-
+%
 On cherche maintenant à étudier
 l'approche du système vers le cycle limite. Pour faire cela, on applique la méthode de moyennement. Pour $\epsilon \ll 1$, on prend
 la fréquence d'oscillation $\omega = 1$ constante et on cherche de solutions sous la forme :
@@ -178,7 +194,9 @@ la fréquence d'oscillation $\omega = 1$ constante et on cherche de solutions so
     \dot{x}(t) = i\left[ z(t)r^{it} - \bar{z}(t)e^{-it} \right]
     \label{eq:vdp_x_xdot}
 \end{equation}
+%
 Avec :
+%
 \begin{equation}
     z(t) = \frac{r(t)}{2}e^{i\phi(t)}
 \end{equation}
@@ -202,8 +220,8 @@ Sachant que $\dot{z}(t) = \frac{\dot{r}}{2}e^{i\phi} + i\dot{\phi}\frac{r}{2}e^{
     \right.\,
 \end{equation}
 %
-On fait l'observation que le système Van der Pol n'a pas de fréquence de référence - contrairement a l'oscillateur de Duffing forcé, la phase ne dépend que des conditions initiales.
-On retrouve aussi les deux solutions stationnaires stable et instable à $r=2$ et $r=0$ trouvé auparavent avec la méthode de Linstedt. On peut résoudre la première equation par séparation des variables pour le cas $r \neq 2$ :
+On fait l'observation que le système Van der Pol n'a pas de fréquence de référence - contrairement à l'oscillateur de Duffing forcé, la phase à l'état stable dépend que des conditions initiales.
+On retrouve aussi les deux solutions stationnaires stable et instable à $r=2$ et $r=0$ trouvé auparavant avec la méthode de Linstedt. On peut résoudre la première équation par séparation des variables pour le cas $r \neq 2$ :
 %
 \begin{equation}
     r(t) = 2 \sqrt{ \frac{A}{A + e^{-\epsilon t}} }
@@ -228,5 +246,5 @@ On retrouve aussi les deux solutions stationnaires stable et instable à $r=2$ e
     \label{fig:vdp_approx}
 \end{figure}
 %
-Dans {fig. \ref{fig:vdp_approx}} on voit que l'approximation obtenue par le moyennement est légèrement en avance par rapport à la solution numérique, on peut attribuer cela à l'approximation $\omega \approx 1$ qui à été fait en négligeant les termes en $\epsilon^2$. 
-De ce fait, l'approximation n'est que fiable jusqu'à des temps de l'ordre $O\left( \frac{1}{\epsilon^2} \right)$ car au delà de ça le décalage entre la solution et l'approximation devient non-négligeable.
+Dans {fig. \ref{fig:vdp_approx}} on voit que l'approximation obtenue par le moyennement est légèrement en avance par rapport à la solution numérique, on peut attribuer cela à l'approximation $\omega \approx 1$ qui a été fait en négligeant les termes en $\epsilon^2$. 
+De ce fait, l'approximation n'est que fiable jusqu'à des temps de l'ordre $O\left( \frac{1}{\epsilon^2} \right)$ car au-delà de ça le décalage entre la solution et l'approximation devient non négligeable.

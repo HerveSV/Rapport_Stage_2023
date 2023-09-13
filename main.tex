@@ -33,7 +33,6 @@
 \usepackage[hidelinks, colorlinks=true, allcolors=blue]{hyperref}
 
 
-\usepackage{float}
 
 \edef\restoreparindent{\parindent=\the\parindent\relax}
 \usepackage{parskip}
@@ -47,7 +46,9 @@
 \usepackage{physics}
 \usepackage{comment}
 \usepackage{cleveref}
+\usepackage{float}
 
+\usepackage{todonotes}
 
 \geometry{a4paper, margin=1.9cm}
 
@@ -74,17 +75,18 @@
 
 
 
-\addbibresource{refs/ref_v4.bib}
+\addbibresource{refs/ref_v6.bib}
 
 
 \title{\Huge{Rapport de Stage}}
 
-\author{Hervé SV}
-\date{Juillet 2023}
+\author{Hervé Schmit-Veiler}
+\date{Septembre 2023}
 
 \begin{document}
 
 \maketitle
+\include{chaptrs/thankyou}
 \tableofcontents
 % switch \include with \input
 

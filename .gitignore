@@ -20,3 +20,5 @@ main.toc
 *.run.xml
 *.synctex.gz
 *.toc
+
+$GIT_DIR/.vscode/**

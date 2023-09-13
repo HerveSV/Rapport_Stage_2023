@@ -6,7 +6,7 @@ Considérons l'équation de l'oscillateur harmonique amorti :
     \qquad {\gamma > 0}
 \end{dmath}   
 %
-Lorsque $\omega_0 > \frac{\gamma}{2}$ le système oscille de manière pseudopériodique et admet des solutions de la forme :
+Lorsque $\omega_0 > \frac{\gamma}{2}$ le système oscille de manière pseudopériodique et a une solution générale de la forme :
 %
 \begin{dmath}
     x(t) = e^{-\frac{\gamma}{2}t}(A\cos(\omega_{\gamma} t) + B\sin(\omega_{\gamma} t))
@@ -17,17 +17,21 @@ Cette solution est caractérisé par des oscillations sinusoïdales avec une amp
 %
 \section{L'oscillateur forcé}
 %
-Étudions le cas où l’on applique une force periodique de la forme $f_0\cos(\omega t)$ :
+Dans le cas où l’on applique une force periodique de la forme $F_0\cos(\omega t)$ :
 %
-\begin{dmath}
+\begin{equation}
     \ddot{x} + \gamma\dot{x} + \omega_0^2 x = f_0\cos(\omega t)
+    \qquad
+    \text{Où}
+    \qquad
+    f_0 = F_0/m
     \label{eq:forced_osc}
-\end{dmath}
+\end{equation}
 %
 Étant donné que la fréquence $\omega$ de la force ne correspondant 
-géneralement pas à la fréquence naturelle de l'oscillateur $\omega_0$, 
-l'oscillateur va initialement resister à la force externe.
-Mais on s'attend a ce pour grand t, à mesure que la solution homogène s'estompe, $x$ finisse par adopter la 
+généralement pas à la fréquence naturelle de l'oscillateur $\omega_0$, 
+l'oscillateur va initialement résister à la force externe.
+Mais pour grand t, à mesure que la solution homogène s'estompe, $x$ finira par adopter la 
 fréquence d'oscillations $\omega$. 
 On cherche donc une solution particulière de cette forme en passant 
 par les complexes \cite{feynman_feynman_nodate}.
@@ -54,7 +58,7 @@ En revenant dans les réels :
     \qquad \dot{x}(t) = -\omega \rho f_0 \sin(\omega t + \phi)
 \end{equation}
 %
-On peut déteminer les expressions pour $\rho$ et $\phi$
+On peut déterminer les expressions pour $\rho$ et $\phi$
 %
 \begin{dmath}
     \rho^2 = RR^* \\
@@ -67,22 +71,36 @@ On peut déteminer les expressions pour $\rho$ et $\phi$
 %
 \begin{figure}[!t]
     \centering
-    \begin{subcaptionblock}{.90\linewidth}
-        \subcaptionbox{}[.45\linewidth]{%
-        \includegraphics[width=\linewidth]{images/harmonique/rho_plot_contrast.png}%
-        }%
-        \hfill
-        \subcaptionbox{}[.45\linewidth]{%
-        \includegraphics[width=\linewidth]{images/harmonique/frequency_phase_shift.png}%
-        }
-    \end{subcaptionblock}
-    \caption{\textbf{(a)} Résponse fréquentielle lorentzienne autour de la résonance. \textbf{(b)} Différence de phase en fonction de la fréquence.}
+    \begin{subfigure}[b]{0.45\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{images/harmonique/rho_plot_contrast.png}
+         \caption{}
+         \label{fig:lorentzian}
+     \end{subfigure}  
+     \begin{subfigure}[b]{0.45\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{images/harmonique/frequency_phase_shift.png}
+         \caption{}
+         \label{fig:phase_shift}
+     \end{subfigure}  
+    
+    \caption{\textbf{(a)} Réponse fréquentielle lorentzienne autour de la résonance divisé par $f_0$ pour ne que garder le facteur multiplicatif. \textbf{(b)} Différence de phase en fonction de la fréquence.}
+
+    % \begin{subcaptionblock}{.90\linewidth}
+    %     \subcaptionbox{}[.45\linewidth]{%
+    %     \includegraphics[width=\linewidth]{images/harmonique/rho_plot_contrast.png}%
+    %     }%
+    %     \hfill
+    %     \subcaptionbox{}[.45\linewidth]{%
+    %     \includegraphics[width=\linewidth]{images/harmonique/frequency_phase_shift.png}%
+    %     }
+    % \end{subcaptionblock}
 \end{figure}
 %MONTRER PLOTS, PARLER DE LA LORENZTIENNE
 %
-$\rho$ prend la forme d’une courbe lorentzienne, l’amplification 
+Le multiplicateur de force $\rho$ prend la forme d’une courbe lorentzienne (fig. \ref{fig:lorentzian}), l’amplification 
 de la force est très forte lorsque $\omega$ est proche de $\omega_0$ 
-(effet de résonance), l’amplification tend rapidement vers zero 
+(effet de résonance), et elle tend rapidement vers zéro 
 le plus $\omega$ s’éloigne de $\omega_0$.
 %
 Étant donné que la solution homogène tend vers $0$, à long terme l'oscillateur va atteindre un état stable où il sera synchronisé avec la force

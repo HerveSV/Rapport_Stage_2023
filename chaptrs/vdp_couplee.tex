@@ -1,6 +1,6 @@
-\chapter{Étude de deux oscillateurs Van der Pol couplés}
+\chapter{Étude de deux oscillateurs de Van der Pol couplés}
 %
-Étudions maintenant le système suivant, composé de deux oscillateurs de Van der Pol identiques couplé par une force de rappel linéaire relativement faible.
+Étudions maintenant le système suivant, composé de deux oscillateurs de Van der Pol identiques, couplé par une force de rappel linéaire relativement faible. On cherchera à étudier si les oscillateurs se synchronisent, et la manière dont ils se synchronisent.
 %
 \begin{equation}
   \left\{\begin{array}{@{}l@{}}
@@ -19,7 +19,7 @@ Encore une fois, on procède par la méthode de moyennement pour obtenir une app
     - i\epsilon k\left( z_2(t) - z_1(t)\right)
 \end{equation}
 %
-On sépare les parties réelles et imaginaires et on obtient un système d'équation pour $\dot{r}_1$,  $\dot{r}_2$,  $\dot{\phi}_1$ et  $\dot{\phi}_2$. %le système :
+On sépare les parties réelles des parties imaginaires et on obtient un système d'équation pour $\dot{r}_1$,  $\dot{r}_2$,  $\dot{\phi}_1$ et  $\dot{\phi}_2$. %le système :
 %
 %
 %   \begin{equation}
@@ -35,7 +35,7 @@ On sépare les parties réelles et imaginaires et on obtient un système d'équa
 %    \end{equation}
 %
 %
-Or, l'oscillateur de Van der Pol n'ayant pas de phase de référence (sa phase n'étant pas fixée par une force exterieure), 
+Or, l'oscillateur de Van der Pol n'ayant pas de phase de référence (sa phase n'étant pas fixée par une force extérieure), 
 %la phase des deux oscillateurs peuvent se synchroniser. En effet, 
 l'évolution du système ne dépend que de la différence entre les phases des oscillateurs. 
 On peut donc réduire le système à trois équations en introduisant la variable de déphasage $\Theta = \phi_2 - \phi_1$ :
@@ -69,7 +69,7 @@ On trouve effectivement une solution stationnaire à condition que $\Theta = 0$ 
 %
 \section{Analyse de stabilité linéaire}
 %
-Pour déterminer la stabilité de ces solutions stationnaires, on peut faire une analyse de stabilité linéaire dans le voisinage des solutions stationnaires. On notera par la suite les solutions stationnaires par un asterisk :
+Pour déterminer la stabilité de ces solutions stationnaires, on peut faire une analyse de stabilité linéaire dans le voisinage des solutions stationnaires. On notera par la suite les solutions stationnaires par un astérisque :
 %
 \begin{equation*}
     r_1^* = r_2^* = r^* = 2
@@ -93,7 +93,7 @@ On procède en se plaçant à une petite perturbation près de la solution stati
     r_1(t) = r^* + \delta r_1(t)
 \end{equation}
 %
-On prend la derivée temporelle et on prend l'approximation linéaire de $\dot{r}_1$, $\dot{r}_2$ et $\dot{\Theta}$ dans le voisinage de la solution stationnaire $\dot{\vb{x}}^*_i$ :
+On prend la dérivée temporelle et on prend l'approximation linéaire de $\dot{r}_1$, $\dot{r}_2$ et $\dot{\Theta}$ dans le voisinage de la solution stationnaire $\vb{x}^*_i$ :
 %
 \begin{dmath}
     \delta \dot{r}_1 = \dot{r}_1(r_1, r_2, \Theta)
@@ -101,7 +101,7 @@ On prend la derivée temporelle et on prend l'approximation linéaire de $\dot{r
     + (r_1 - r^*)\pdv{\dot{r}_1}{r_1} + (r_2 - r^*)\pdv{\dot{r}_1}{r_2} + (\Theta - \Theta_i^*)\pdv{\dot{r}_1}{\Theta}
 \end{dmath}
 %
-Sous forme vectorielle on a :
+Sous forme vectorielle, on a :
 %
 \begin{equation}
     \dot{\delta \vb{x}} = M \delta \vb{x}
@@ -135,26 +135,28 @@ Avec,
     \label{eq:slow_flow}
 \end{equation}
 %
-$M_i$ étant la matrice jacobienne du champ vectorielle $(\dot{r}_1, \dot{r}_1, \dot{\Theta})$ évalué au point stationnaire $\vb{x}^*_i$.
+$M_i$ étant la matrice jacobienne du champ vectorielle $(\dot{r}_1, \dot{r}_2, \dot{\Theta})$ évalué au point stationnaire $\vb{x}^*_i$.
 %
-Cette approximation linéaire nous permet de déduire l'évolution du système dans le voisinage des points stationnaires de manière qualitatif, notamment si les points sont stables ou instables. 
-A moins que l'approximation linéaire soit nulle, la stabilité du système sera inchangé par les termes des ordres plus hauts.
+Cette approximation linéaire nous permet de déduire l'évolution du système dans le voisinage des points stationnaires de manière qualitative, notamment si les points sont stables ou instables. 
+À moins que l'approximation linéaire soit nulle, la stabilité du système sera inchangé par les termes des ordres plus hauts.
 %
 %UN SKETCH DE L'ESPACE DE PHASE POURRAIT ÊTRE SYMPA
 %On s'intéresse particulièrement à des trajectoires rectilignes 'spéciales' A FINIR
 %
 %
+
 Dans le cas général, il est possible d'écrire $\delta\vb{x}$ sous forme d'une combinaison linéaire des vecteurs propres de $M$ :
 %
 \[ \delta\vb{x} = c_1 e^{\lambda_1 t}\vb{v}_1 + c_2 e^{\lambda_2 t}\vb{v}_2 + c_3 e^{\lambda_3 t}\vb{v}_3\]
 %
-Avec $\vb{v}_j$ et $\lambda_j$ les vecteurs et valeurs propres correspondants, qui ne se ni strictement réel ni strictement distinct l'un des autres.
+Avec $\vb{v}_j$ et $\lambda_j$ les vecteurs et valeurs propres correspondants, qui ne sont ni tous strictement réel ni strictement distinct le un des autres.
 %
 Pour un point stationnaire donné, si $\lambda_j < 0$ pour $j = 1, 2, 3$ alors, on voit que la perturbation $\delta\vb{x}$ décroit avec le temps, donc le point stationnaire est stable. Sinon, le point est instable.
 %
 On s'intéresse donc surtout aux signes des valeurs propres de $M$.
 %
-On évalue la matrice jacobienne au deux points stationnaires.
+
+Procédons par l'évaluation de la matrice jacobienne au deux points stationnaires.
 %
 \begin{equation}
     M_1 = \begin{pmatrix}
@@ -193,6 +195,8 @@ Les valeurs propres sont déterminées à partir de la condition :
     \det(M_i - \lambda I)=0
 \end{dmath}
 %
+Appliqué à $M_1$
+%
 \begin{dmath}
     \begin{vmatrix}
         -\epsilon - \lambda & 0 & +\epsilon k \\
@@ -208,11 +212,13 @@ Les valeurs propres sont déterminées à partir de la condition :
     %    -k/2 & k/2
     %\end{vmatrix} \\
     %= (- \epsilon - \lambda)\left( -\lambda(-\epsilon-\lambda) + \frac{k^2}{2} \right) + \frac{k^2}{2}(-\epsilon -\lambda)
-    = \epsilon^2 k^2(-\epsilon - \lambda) - \lambda(-\epsilon - \lambda) \\
+    = \epsilon^2 k^2(-\epsilon - \lambda) - \lambda(-\epsilon - \lambda)^2 \\
     = 0
+    \label{eq:coupled_charact_eq}
 \end{dmath}
 %
-On trouve la même équation caractéristique pour $M_2$, qui peut être résolu pour obtenir :
+On trouve la même équation caractéristique pour $M_2$ que pour $M_1$, signifiant que le dynamique autour des
+deux points stationnaires sont identiques. Cette équation caractéristique \eqref{eq:coupled_charact_eq} peut être résolu pour $\lambda$ :
 %
 \begin{equation}
   \left\{\begin{array}{@{}l@{}}
@@ -226,31 +232,42 @@ On trouve la même équation caractéristique pour $M_2$, qui peut être résolu
 %
 \begin{figure}
     \centering
-    % \begin{subcaptionblock}{.95\linewidth}
-    %     \includegraphics[width=.35\linewidth]{images/couplee/eigenvalues_ϵ=0.2.png}%
-    %     \hfill
-    %     \includegraphics[width=.60\linewidth]{images/couplee/smaller_k=1_x0=[0.038,-0.018,0.265,-0.486]_ϵ=0.1.png}%
-    % \end{subcaptionblock}
-    \subcaptionbox{}[.37\linewidth]{%
-        \includegraphics[width=\linewidth]{images/couplee/eigenvalues_ϵ=0.2.png}%
-        \label{fig:eigenvals}
-    }
-    \hfill
-    \subcaptionbox{}[.60\linewidth]{%
-        \includegraphics[width=\linewidth]{images/couplee/notitle_k=1_x0=[0.038,-0.018,0.265,-0.486]_ϵ=0.1.png}%
-        \label{fig:comparison}
-    }
-    \label{fig:yeet}
+     \begin{subfigure}[b]{0.37\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{images/couplee/eigenvalues_eps=0.2.png}
+         \caption{}
+         \label{fig:eigenvals}
+     \end{subfigure}
+     \hfill
+     \begin{subfigure}[b]{0.62\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{images/couplee/notitle_k=1_x0=[0.038,-0.018,0.265,-0.486]_eps=0.1.png}
+         \caption{}
+         \label{fig:comparison}
+     \end{subfigure}    
+
+    
+    % \subcaptionbox{}[.37\linewidth]{%
+    %     \includegraphics[width=\linewidth]{images/couplee/eigenvalues_eps=0.2.png}%
+    %     \label{fig:eigenvals}
+    % }
+    % \hfill
+    % \subcaptionbox{}[.60\linewidth]{%
+    %     \includegraphics[width=\linewidth]{images/couplee/notitle_k=1_x0=[0.038,-0.018,0.265,-0.486]_eps=0.1.png}%
+    %     \label{fig:comparison}
+    % }
+
     \caption{\textbf{(a)} Tracé de la partie réelle des valeurs propres $\lambda_i$ en fonction de $k$, $\epsilon=0.2$. 
-        \textbf{(b)} Comparaison graphique du système original \eqref{eq:coupled_vdp} avec le système moyenné \eqref{eq:slow_flow} faite par intégration numérique – $x_1(0)=0.038$, $x_2(0)=0.265$, $\dot{x}_1(0)=-0.018$, $\dot{x}_2(0)=-0.486$, $\epsilon=0.1$, $k=1$}
+        \textbf{(b)} Comparaison graphique du système original \eqref{eq:coupled_vdp} avec le système moyenné \eqref{eq:slow_flow} faite par intégration numérique, notez les amplitudes oscillantes – $x_1(0)=0.038$, $x_2(0)=0.265$, $\dot{x}_1(0)=-0.018$, $\dot{x}_2(0)=-0.486$, $\epsilon=0.1$, $k=1$}
     
 \end{figure}
+
 %
 Il est évident que $\lambda_1$ est strictement négatif. %$\lambda_1 < 0 \ \forall k$
-Et pour $0 \leq |k| \leq \frac{1}{2} $ on voit bien que $\sqrt{\epsilon^2 - 4\epsilon^2k^2} \leq \epsilon$, donc :
+Et pour $0 \leq |k| \leq \frac{1}{2} $ on voit que $\sqrt{\epsilon^2 - 4\epsilon^2k^2} \leq \epsilon$, donc :
 \[ -\epsilon \leq \lambda_2 \leq -\frac{\epsilon}{2} \qquad -\frac{\epsilon}{2} \leq \lambda_3 \leq 0\]
 %
-Lorsque $|k| > \frac{1}{2}$, $\lambda_2$ et $\lambda_3$ devienne un couple de complexes conjugués. 
+Lorsque $|k| > \frac{1}{2}$, $\lambda_2$ et $\lambda_3$ deviennent un couple de complexes conjugués. 
 Géométriquement, cela correspond à des trajectoires spirales oscillant autour du point stationnaire 
 – effectivement, on peut vérifier numériquement que $r_1$, $r_2$ et $\Theta$ oscillent dans ces cas-là (fig. \ref{fig:comparison}). 
 La stabilité est déterminée par la partie réelle des valeurs propres. Or :
@@ -260,9 +277,14 @@ La partie réelle des trois valeurs propres étant toujours négatives,
 on voit donc que dans le cadre de notre approximation, les points stationnaires $(2, 2, 0)$, $(2, 2, \pi)$ sont stables pour tout $k$. 
 Ce qui nous montre que les deux oscillateurs peuvent se synchroniser soit en phase ou en anti-phase. 
 On n'a pas éliminé la possibilité que l'oscillateur ne se synchronise pas, ni qu'il pourrait y avoir d'autres solutions stables. 
-Pour cela, il faudrait étudier de plus près l'étendu des bassins d'attraction - s'il y a des conditions 'neutres' 
-qui ne donnent pas lieu à de la synchronisation
+Pour cela, il faudrait étudier l’existence d’autres solutions stationnaires stables ou de conditions ‘neutres’ qui ne donnent pas lieu a la synchronisation.
+%
+Ceci dit, l’analyse numérique du problème 
+%par intégration numérique 
+avec conditions initiales aléatoires n’a pas révélé d’autre solution stables, ni de cas non synchronisant.
+% Pour cela, il faudrait étudier de plus près l'étendu des bassins d'attraction - s'il y a des conditions 'neutres' 
+% qui ne donnent pas lieu à de la synchronisation.
 
-Étant donné que les valeurs propres sont identiques pour les deux points stationnaires, 
+Étant donné que les valeurs propres des deux points stationnaires sont identiques, 
 on s'attend a ce que les deux configurations synchronisées soient aussi stables l'une que l'autre. 
-Donc, l'état synchronisé que va choisir le système va dépendre des conditions initiales.
+Donc a priori, si le système n'admet pas d'autres solutions stables, l'état synchronisé devra dépendre des conditions initiales.
