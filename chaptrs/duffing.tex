@@ -36,9 +36,9 @@ x(t) = r(t)\cos(\omega t + \phi(t)) \qquad \dot{x}(t) =  -\omega r(t)\sin(\omega
 %\begin{equation*}
 %    r(t) = \sqrt{x^2 + (\dot{x}/\omega)^2}
 %\end{equation*}
-En effet, pour $\epsilon=0$ la solution est celle de l'oscillateur harmonique, avec $r$ et $\phi$ constants.
+En effet, pour $\epsilon=0$, l'équation correspond à l'oscillateur harmonique, avec $r$ et $\phi$ constants.
 Donc pour $0 < \epsilon \ll \omega_0$, on s'attend à trouver un comportement semblable, mais cette fois avec $r(t)$ et $\phi(t)$ 
-qui varient lentement avec le temps – un peu comme dans le cas de l'oscillateur harmonique amorti, où la vitesse d'évolution est également lente pour petit $\gamma$.
+qui varient lentement avec le temps – on peut faire l'analogie avec l'oscillateur harmonique amorti, où la vitesse d'évolution est également lente pour petit $\gamma$.
 %On anticipe que pour grand t, la solution approche un régime permanent qui oscille à la fréquence $\omega$, ce qui justifie...
 %On justifie ce choix par le fait lorsque $0 < \epsilon \ll \omega_0$, on s'attend à trouver un comportement semblable à l'oscillateur harmonique.
 %"additionally", on cherche
@@ -46,8 +46,10 @@ qui varient lentement avec le temps – un peu comme dans le cas de l'oscillateu
 %Où $r(t)$ et $\phi(t)$ varient lentement avec le temps.
 %
 
-Il est particulièrement important de choisir la fréquence $\omega$ est non $\omega_0$ car cela nous permet de faire coïncider la solution au régime permanent (qui est supposé harmonique, avec fréquence $\omega$)
-au solutions stationnaires de $r$ et $\phi$. On peut aussi exprimer \eqref{eq:duff_x_xdot} sous forme complexe :
+Dans notre cas précis, il est particulièrement important de choisir la fréquence $\omega$ est non $\omega_0$ car cela nous permet de faire coïncider la solution au régime permanent (qui est supposé harmonique, avec fréquence $\omega$)
+au solutions stationnaires de $r(t)$ et $\phi(t)$. 
+
+§On peut aussi exprimer \eqref{eq:duff_x_xdot} sous forme complexe :
 \begin{equation}
     x(t) = z(t)e^{i\omega t} + \bar{z}(t) e^{-i\omega t}
     \qquad 
@@ -79,14 +81,14 @@ En substituant les équations de $x$, $\dot{x}$, et de $\ddot{x}$ dans \eqref{eq
 %
 \begin{dmath}
     2i\omega \dot{z}(t)e^{i\omega t} + (i\omega)^2 \left[ z(t)e^{i\omega t} + \bar{z}(t) e^{-i\omega t} \right]
-    + i\gamma\omega \left[ z(t)e^{i\omega t} - \bar{z}(t) e^{-i\omega t} \right] \\
+    + i\epsilon\gamma\omega \left[ z(t)e^{i\omega t} - \bar{z}(t) e^{-i\omega t} \right] \\
     + \omega_0^2 \left[ z(t)e^{i\omega t} + \bar{z}(t) e^{-i\omega t} \right]
     + \epsilon \left[ z(t)e^{i\omega t} + \bar{z}(t) e^{-i\omega t} \right]^3 = \epsilon \frac{f_0}{2}\left[ e^{i\omega t} + e^{-i\omega t} \right]
 \end{dmath}
 Puis en multipliant par $e^{-i\omega t}$ :
 \begin{dmath}
     2i\omega \dot{z}(t) + (i\omega)^2 \left[ z(t) + \bar{z}(t) e^{-i 2 \omega t} \right]
-    + i\gamma\omega \left[ z(t) - \bar{z}(t) e^{-i 2 \omega t} \right]
+    + i\epsilon\gamma\omega \left[ z(t) - \bar{z}(t) e^{-i 2 \omega t} \right]
     + \omega_0^2 \left[ z(t) + \bar{z}(t) e^{-i 2 \omega t} \right] \\
     + \epsilon \left[ z(t)^3 e^{i 2 \omega t} + 3 z(t)^2 \bar{z}(t) + 3z(t)\bar{z}(t)^2 e^{-i2\omega t} + \bar{z}(t)^3 e^{-i4 \omega t} \right]
     = \epsilon \frac{f_0}{2}\left[ 1 + e^{-i 2 \omega t} \right]
@@ -126,11 +128,11 @@ On prend donc la moyenne mobile de l'equation \eqref{eq:duff_pre_av},
 ce qui nous permet de négliger les facteurs de $e^{i n\omega t}$.
 \begin{dmath}
     2i\omega \langle \dot{z} \rangle = - (i\omega)^2 \langle z \rangle
-    - i\gamma\omega \langle z \rangle
+    - i\epsilon\gamma\omega \langle z \rangle
     - \omega_0^2 \langle z \rangle 
     - 3 \epsilon \langle z^2 \bar{z} \rangle
     + \epsilon \frac{f_0}{2} \\
-    = (\omega^2 - \omega_0^2)z(t) - i\gamma\omega z(t) - 3\epsilon |z|^2 z(t) + \epsilon \frac{f_0}{2}
+    = (\omega^2 - \omega_0^2)z(t) - i\epsilon\gamma\omega z(t) - 3\epsilon |z|^2 z(t) + \epsilon \frac{f_0}{2}
 \end{dmath}
 %Une autre façon d'y  penser :  on discrétise le temps en blocs de $T$. 
 %Donc d'une certaine manière, on réduis la résolution temporelle de nos équations pour ne garder que les parties lentement variables.
@@ -140,7 +142,7 @@ donc on prend l'approximation $\omega^2 - \omega_0^2 = (\omega + \omega_0)(\omeg
 %
 \begin{dmath}
     \dot{z}(t) = -i(\omega - \omega_0)z(t)
-    - \frac{\gamma}{2} z(t) + \frac{3i\epsilon}{2\omega}|z|^2z(t) - \frac{i\epsilon f_0}{4\omega}
+    - \frac{\epsilon\gamma}{2} z(t) + \frac{3i\epsilon}{2\omega}|z|^2z(t) - \frac{i\epsilon f_0}{4\omega}
 \end{dmath}
 %
 \section{Adimensionnement de l'équation}
@@ -156,7 +158,7 @@ Où $t_c$ et $z_c$ sont des constantes physiques à définir et $\tau$ et $q(\ta
 Ce choix de variables nous donne l'équation suivante :
 %
 \begin{equation}
-    \frac{dq}{d\tau} = q'(\tau) = -i(\omega - \omega_0)t_c q(\tau) - \frac{\gamma}{2}t_c q(\tau) + i \frac{3\epsilon}{2\omega}z_c^2t_c |q|^2q(\tau) - \frac{i\epsilon f_0}{4\omega}\frac{t_c}{z_c}
+    \frac{dq}{d\tau} = q'(\tau) = -i(\omega - \omega_0)t_c q(\tau) - \frac{\epsilon\gamma}{2}t_c q(\tau) + i \frac{3\epsilon}{2\omega}z_c^2t_c |q|^2q(\tau) - \frac{i\epsilon f_0}{4\omega}\frac{t_c}{z_c}
 \end{equation}
 %
 Si on pose comme conditions :
@@ -164,7 +166,7 @@ Si on pose comme conditions :
 \begin{equation}
     \left\{
     \begin{array}{@{}l@{}}
-        \frac{\gamma}{2}t_c = 1 \\
+        \frac{\epsilon\gamma}{2}t_c = 1 \\
         \\
         \frac{3\epsilon}{2\omega}z_c^2t_c = 1
     \end{array}
@@ -180,13 +182,13 @@ On retrouve l'équation adimensionnée
 Avec :
 %
 \begin{equation}
-    \tau = \frac{\gamma}{2}t
+    \tau = \frac{\epsilon\gamma}{2}t
     \qquad
-    q(\tau) = \sqrt{\frac{3\epsilon}{\omega\gamma}}z(t)
+    q(\tau) = \sqrt{\frac{3\epsilon}{\epsilon\omega\gamma}}z(t)
     \qquad
-    \Omega = \frac{(\omega - \omega_0)}{\gamma/2}
+    \Omega = \frac{(\omega - \omega_0)}{\epsilon\gamma/2}
     \qquad
-    F_0 = \frac{\sqrt{3}\epsilon^{3/2} f_0}{2(\omega \gamma)^{3/2}}
+    F_0 = \frac{\sqrt{3}\epsilon^{3/2} f_0}{2(\epsilon \omega \gamma)^{3/2}}
 \end{equation}
 %
 On peut trouver la solution stationnaire pour analyser le comportement à $t\to\infty$ :

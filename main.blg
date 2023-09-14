@@ -1,15 +1,30 @@
 [0] Config.pm:307> INFO - This is Biber 2.19
 [0] Config.pm:310> INFO - Logfile is 'main.blg'
-[41] biber-darwin:340> INFO - === Tue Sep 12, 2023, 23:23:02
-[51] Biber.pm:419> INFO - Reading 'main.bcf'
-[100] Biber.pm:979> INFO - Found 7 citekeys in bib section 0
-[109] Biber.pm:4419> INFO - Processing section 0
-[115] Biber.pm:4610> INFO - Looking for bibtex file 'refs/ref_v6.bib' for section 0
-[116] bibtex.pm:1713> INFO - LaTeX decoding ...
-[124] bibtex.pm:1519> INFO - Found BibTeX data source 'refs/ref_v6.bib'
-[165] UCollate.pm:68> INFO - Overriding locale 'fr-FR' defaults 'variable = shifted' with 'variable = non-ignorable'
-[165] UCollate.pm:68> INFO - Overriding locale 'fr-FR' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[165] Biber.pm:4239> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'fr-FR'
-[165] Biber.pm:4245> INFO - No sort tailoring available for locale 'fr-FR'
-[170] bbl.pm:660> INFO - Writing 'main.bbl' with encoding 'UTF-8'
-[172] bbl.pm:763> INFO - Output to main.bbl
+[68] biber-darwin:340> INFO - === Thu Sep 14, 2023, 13:11:12
+[83] Biber.pm:419> INFO - Reading 'main.bcf'
+[163] Biber.pm:979> INFO - Found 10 citekeys in bib section 0
+[176] Biber.pm:4419> INFO - Processing section 0
+[186] Biber.pm:4610> INFO - Looking for bibtex file 'refs/ref_v8.bib' for section 0
+[188] bibtex.pm:1713> INFO - LaTeX decoding ...
+[205] bibtex.pm:1519> INFO - Found BibTeX data source 'refs/ref_v8.bib'
+[281] UCollate.pm:68> INFO - Overriding locale 'fr-FR' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[282] UCollate.pm:68> INFO - Overriding locale 'fr-FR' defaults 'variable = shifted' with 'variable = non-ignorable'
+[282] Biber.pm:4239> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'fr-FR'
+[282] Biber.pm:4245> INFO - No sort tailoring available for locale 'fr-FR'
+[291] bbl.pm:660> INFO - Writing 'main.bbl' with encoding 'UTF-8'
+[297] bbl.pm:763> INFO - Output to main.bbl
+[297] Biber.pm:131> WARN - article entry 'samoilenko_nn_1994' (refs/ref_v8.bib): Invalid format '2023-09-12' of date field 'urldate' - ignoring
+[297] Biber.pm:131> WARN - article entry 'samoilenko_nn_1994' (refs/ref_v8.bib): Invalid format '1994-10-31' of date field 'date' - ignoring
+[298] Biber.pm:131> WARN - article entry 'mira_historical_1997' (refs/ref_v8.bib): Invalid format '2023-09-12' of date field 'urldate' - ignoring
+[298] Biber.pm:131> WARN - article entry 'mira_historical_1997' (refs/ref_v8.bib): Invalid format '1997-09' of date field 'date' - ignoring
+[298] Biber.pm:131> WARN - article entry 'pistolesi_proposal_2021' (refs/ref_v8.bib): Invalid format '2023-09-13' of date field 'urldate' - ignoring
+[298] Biber.pm:131> WARN - article entry 'pistolesi_proposal_2021' (refs/ref_v8.bib): Invalid format '2021-08-03' of date field 'date' - ignoring
+[298] Biber.pm:131> WARN - article entry 'moser_ultrasensitive_2013' (refs/ref_v8.bib): Invalid format '2023-09-13' of date field 'urldate' - ignoring
+[298] Biber.pm:131> WARN - article entry 'moser_ultrasensitive_2013' (refs/ref_v8.bib): Invalid format '2013-07' of date field 'date' - ignoring
+[298] Biber.pm:131> WARN - article entry 'djorwe_self-organized_2020' (refs/ref_v8.bib): Invalid format '2023-09-13' of date field 'urldate' - ignoring
+[298] Biber.pm:131> WARN - article entry 'djorwe_self-organized_2020' (refs/ref_v8.bib): Invalid format '2020-10-12' of date field 'date' - ignoring
+[298] Biber.pm:131> WARN - book entry 'feynman_feynman_nodate' (refs/ref_v8.bib): Invalid format '2023-07-24' of date field 'urldate' - ignoring
+[298] Biber.pm:131> WARN - book entry 'rand_lecture_2012' (refs/ref_v8.bib): Invalid format '2012-05' of date field 'date' - ignoring
+[298] Biber.pm:131> WARN - book entry 'landau_mechanics_1976' (refs/ref_v8.bib): Invalid format '1976' of date field 'date' - ignoring
+[298] Biber.pm:131> WARN - book entry 'strogatz_nonlinear_2015' (refs/ref_v8.bib): Invalid format '2015' of date field 'date' - ignoring
+[298] Biber.pm:133> INFO - WARNINGS: 14
