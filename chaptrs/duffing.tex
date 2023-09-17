@@ -1,6 +1,6 @@
 \chapter{L'oscillateur de Duffing forcé}
 %
-Considérons de nouveau un oscillateur forcé, mais maintenant avec un terme en $x^3$ supplémentaire, nous donnant l'équation de Duffing forcé. Ce n'est plus une équation linéaire, donc on ne peut plus exprimer la solution comme étant une superposition des solutions homogènes et particulières. Cette équation, comme la plupart des équations différentielles non-linéaires, n'a pas de solution analytique exacte.
+Considérons de nouveau un oscillateur forcé, mais maintenant avec un terme en $x^3$ supplémentaire, nous donnant l'équation de Duffing forcé :
 %
 %Limite faible de $\epsilon$
 %
@@ -8,17 +8,10 @@ Considérons de nouveau un oscillateur forcé, mais maintenant avec un terme en 
     \ddot{x} + \omega_0^2 x + \epsilon \gamma \dot{x} + \epsilon \alpha x^3 = \epsilon f_0 \cos(\omega t)
     \label{eq:duffing}
 \end{equation}
-%DO $f_0 \to \epsilon f_0$ CHANGE
 %
-%Aussi faible qu'il soit, ce terme invalide principe de superposition. Mais on peut faire des hypothèses a partir de faible amplitude...
-%Lorsque $0 < \epsilon \ll 1$, on s'attend à trouver un comportement semblable à l'oscillateur harmonique forcé. 
-%On cherche donc des solutions de la forme :
-%on peut traiter le système comme étant un oscillateur harmonique perturbé. 
-%En s'inspirant de l'oscillateur harmonique forcé, 
-%On fait l'hypothèse que comme dans le cas de l'oscillateur harmonique amorti, la vitesse d'évolution de $r$ et de $\phi$ sont données par le coefficient d'amortissement $\gamma$. 
-%Donc si $\gamma \ll \omega$,  $r$ et $\phi$ vont varier
-% lentement par rapport à la période d'oscillation de $x$.
-%nous allons employer une méthode d'analyse approximative appelée 
+Cette équation est utilisée pour modéliser des structures élastiques dans un régime forcé lorsque qu'il n'est plus possible de négliger les effets élastiques non-linéaires en raison des amplitudes d'oscillations trop grandes.
+Cette équation, comme la plupart des équations différentielles non-linéaires, n'a pas de solution analytique exacte.
+%
 \section{La méthode de moyennement}
 %
 Afin d'analyser ce problème, nous allons utiliser la méthode de 
@@ -39,15 +32,9 @@ x(t) = r(t)\cos(\omega t + \phi(t)) \qquad \dot{x}(t) =  -\omega r(t)\sin(\omega
 En effet, pour $\epsilon=0$, l'équation correspond à l'oscillateur harmonique, avec $r$ et $\phi$ constants.
 Donc pour $0 < \epsilon \ll \omega_0$, on s'attend à trouver un comportement semblable, mais cette fois avec $r(t)$ et $\phi(t)$ 
 qui varient lentement avec le temps – on peut faire l'analogie avec l'oscillateur harmonique amorti, où la vitesse d'évolution est également lente pour petit $\gamma$.
-%On anticipe que pour grand t, la solution approche un régime permanent qui oscille à la fréquence $\omega$, ce qui justifie...
-%On justifie ce choix par le fait lorsque $0 < \epsilon \ll \omega_0$, on s'attend à trouver un comportement semblable à l'oscillateur harmonique.
-%"additionally", on cherche
-%De plus, sachant que le système est non conservatif, il est inévitable que la solution prenne tôt ou tard la fréquence $\omega$.
-%Où $r(t)$ et $\phi(t)$ varient lentement avec le temps.
-%
 
 Dans notre cas précis, il est particulièrement important de choisir la fréquence $\omega$ est non $\omega_0$ car cela nous permet de faire coïncider la solution au régime permanent (qui est supposé harmonique, avec fréquence $\omega$)
-au solutions stationnaires de $r(t)$ et $\phi(t)$. 
+aux solutions stationnaires de $r(t)$ et $\phi(t)$. 
 
 On peut aussi exprimer \eqref{eq:duff_x_xdot} sous forme complexe :
 \begin{equation}
@@ -96,7 +83,6 @@ Puis en multipliant par $e^{-i\omega t}$ :
 \end{dmath}
 %
 %
-%
 Jusqu'ici, tout est exact. On procède ensuite par une opération de moyennement, qui exploite les deux échelles de temps observé dans notre système. 
 Une échelle `rapide' marqué par des oscillations avec des périodes de l'ordre $T = 2\pi / \omega$, 
 et une échelle `lente' selon laquelle évolue $z(t)$. 
@@ -124,7 +110,7 @@ Et $n \omega t$ étant défini modulo $2\pi$, on remarque que pour $n \neq 0$ :
     \frac{1}{T}\int_{t-\frac{T}{2}}^{t+\frac{T}{2}}{e^{in\omega t'}}dt' = 0
 \end{equation*}
 %
-On prend donc la moyenne mobile de l'equation \eqref{eq:duff_pre_av}, 
+On prend donc la moyenne mobile de l'équation \eqref{eq:duff_pre_av}, 
 ce qui nous permet de négliger les facteurs de $e^{i n\omega t}$.
 \begin{dmath}
     2i\omega \langle \dot{z} \rangle = - (i\omega)^2 \langle z \rangle
@@ -226,7 +212,7 @@ Cependant, il est possible d'exprimer $\Omega$ en fonction de $|q_0|$ :
     \caption{Réponses fréquentielles de Duffing obtenu à partir de \eqref{eq:duff_response} \textbf{(a)} $F_0=0.5$ \textbf{(b)} $F_0=1.5$ \textbf{(c)} $F_0=5.0$}\label{fig:duffing_response_all}
 \end{figure}
 Où $\pm \sqrt{\frac{F_0^2}{|q_0|^2} - 1 }$ correspondant à la lorentzienne pure, et $|q_0|^2$ forme 
-une colone vertébrale (\emph{backbone} en anglais) qui donne la forme caractéristique de cette réponse fréquentielle non-linéaire.
+une colonne vertébrale (\emph{backbone} en anglais) qui donne la forme caractéristique de cette réponse fréquentielle non-linéaire.
 %
 Pour $F_0 \to 0$ la réponse, devient lorentzienne. À mesure de $F_0$ augmente, la courbe de la réponse fréquentielle va 
 se déformer en suivant la \emph{backbone} (fig.~\ref{fig:duffing_response_all}).
@@ -286,7 +272,6 @@ Ce qui nous impose la solution unique $\Omega = \sqrt{3}$. En substituant ces va
     F_{0,c} = \left(  \frac{8\sqrt{3}}{9}  \right)^{1/2} \approx 1.241
 \end{equation}
 %
-%\todo{à revoir}
 %
 Une observation finale intéressante. Étant donné que $F_0 \propto \alpha f_0$, 
 on voit que même dans un système ou le terme non-linéaire est très faible (où on ne s'attendrait pas à observer de non-linéarité). Il suffit d'augmenter l'amplitude de forçage $f_0$ 

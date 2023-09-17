@@ -31,10 +31,10 @@ Dans le cas où l’on applique une force periodique de la forme $F_0\cos(\omega
 Étant donné que la fréquence $\omega$ de la force ne correspondant 
 généralement pas à la fréquence naturelle de l'oscillateur $\omega_0$, 
 l'oscillateur va initialement résister à la force externe.
-Mais pour $t$ assez grand, à mesure que la solution homogène s'estompe, $x$ finira par adopter la 
-fréquence d'oscillations $\omega$. 
-On cherche donc une solution particulière de cette forme en passant 
-par les complexes \cite{feynman_feynman_nodate}.
+Mais pour $t$ assez grand, à mesure que la solution homogène s'estompe, $x$ finira par adopter la fréquence d'oscillations $\omega$. 
+On cherche donc une solution particulière 
+sous la forme d'une oscillation harmonique avec fréquence $\omega$. 
+Par simplicité, on choisit la méthode de passage par les complexes \cite{feynman_feynman_nodate}.
 %
 \begin{equation}
     x(t) = \Re(z(t)) \quad z(t) = Ae^{i\omega t}
@@ -50,7 +50,7 @@ L'équation \eqref{eq:forced_osc} devient :
     z(t) = R f_0 e^{i \omega t} \qquad R = \frac{1}{\omega_0^2 - \omega^2 + i\omega\gamma} = \rho e^{i\phi}
 \end{equation}
 %
-Le module $\rho$ est le multiplicateur d’ampltitude en réponse à la force, et l’argument $\phi$ va induire un déphasage de $x$ par rapport à la force.
+Le module $\rho$ est le multiplicateur d’amplitude en réponse à la force, et l’argument $\phi$ représente le déphasage de $x$ par rapport à la force.
 %
 En revenant dans les réels :
 \begin{equation}
@@ -72,36 +72,25 @@ On peut déterminer les expressions pour $\rho$ et $\phi$
 \begin{figure}[!t]
     \centering
     \begin{subfigure}[b]{0.45\textwidth}
-         \centering
-         \includegraphics[width=\textwidth]{images/harmonique/rho_plot_contrast.png}
-         \caption{}
-         \label{fig:lorentzian}
-     \end{subfigure}  
-     \begin{subfigure}[b]{0.45\textwidth}
-         \centering
-         \includegraphics[width=\textwidth]{images/harmonique/frequency_phase_shift.png}
-         \caption{}
-         \label{fig:phase_shift}
-     \end{subfigure}  
-    
-    \caption{\textbf{(a)} Réponse fréquentielle lorentzienne autour de la résonance, divisé par $f_0$ pour ne que garder le facteur multiplicatif. \textbf{(b)} Différence de phase en fonction de la fréquence.}
-
-    % \begin{subcaptionblock}{.90\linewidth}
-    %     \subcaptionbox{}[.45\linewidth]{%
-    %     \includegraphics[width=\linewidth]{images/harmonique/rho_plot_contrast.png}%
-    %     }%
-    %     \hfill
-    %     \subcaptionbox{}[.45\linewidth]{%
-    %     \includegraphics[width=\linewidth]{images/harmonique/frequency_phase_shift.png}%
-    %     }
-    % \end{subcaptionblock}
+        \centering
+        \includegraphics[width=\textwidth]{images/harmonique/rho_plot_contrast.png}
+        \caption{}
+        \label{fig:lorentzian}
+    \end{subfigure}  
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{images/harmonique/frequency_phase_shift.png}
+        \caption{}
+        \label{fig:phase_shift}
+    \end{subfigure}  
+    %
+    \caption{\textbf{(a)} Réponse fréquentielle lorentzienne $\rho$ autour de la résonance, le pic est plus raide pour petit $\gamma$. \textbf{(b)} Déphasage $\phi$ en fonction de la fréquence.}
 \end{figure}
-%MONTRER PLOTS, PARLER DE LA LORENZTIENNE
 %
 Le multiplicateur de force $\rho$ prend la forme d’une courbe lorentzienne (fig. \ref{fig:lorentzian}), l’amplification 
 de la force est très forte lorsque $\omega$ est proche de $\omega_0$ 
 (effet de résonance), et elle tend rapidement vers zéro 
-le plus $\omega$ s’éloigne de $\omega_0$.
+le plus $\omega$ s’éloigne de $\omega_0$ \cite{feynman_feynman_nodate}.
 %
 Étant donné que la solution homogène tend vers $0$, à long terme l'oscillateur va atteindre un état stable où il sera synchronisé avec la force
 avec un déphasage bien défini.

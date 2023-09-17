@@ -1,23 +1,17 @@
 \chapter{Introduction}
-L'oscillation, phénomène omniprésent dans la nature, revêt une importance cruciale dans divers domaines de la science et de l'ingénierie. Les oscillateurs, en particulier, jouent un rôle essentiel dans de nombreuses applications, allant des systèmes électriques et mécaniques aux processus biologiques et chimiques. Si les oscillateurs linéaires ont fait l'objet de nombreuses études approfondies, il existe un autre domaine fascinant et complexe qui mérite une attention particulière : celui des oscillateurs non-linéaires.
+L'oscillation, phénomène omniprésent dans la nature, joue un rôle crucial dans divers domaines de la science et de l'ingénierie. Les oscillateurs, en particulier, sont essentiels dans de nombreuses applications, des systèmes électroniques et mécaniques aux processus biologiques et chimiques. Si les oscillateurs linéaires ont fait l'objet de nombreuses études approfondies, il existe un autre domaine fascinant et complexe qui mérite une attention particulière : celui des oscillateurs non-linéaires.
 
-% \todo{Ajouter des exemples de la micro ou nanomécanique.
-% Etoffer un peu plus la biblio théorie et exp sur les oscillateurs NL
-% Mieux faire l'état de l'art et l'intro de la problématique de ton stage
-% Etoffer l'intro.
-% Quel titre à ton stage ?
-
-% Mettre exemple une publi sur le couplage de oscillateurs nanomécaniques couplés ac ex de la synchronisation}
-%
 Stimulé principalement par les besoins pratiques de l'ingénierie radio,
-le domaine des oscillations non-linéaires a connu une phase de croissance importante au début du vingtième siecle \cite{samoilenko_nn_1994}.
-%suscité un intérêt particulier  \cite{samoilenko_nn_1994}.
-On peut citer le travail novateur de B. van der Pol sur les oscillations de relaxations, 
-ainsi que ``la contribution exceptionnelle de l'école d'Andronov et de l'école de Krylov-Bogoliubov'', 
-ces derniers étant responsable pour le développement formel de la méthode de moyennement \cite{mira_historical_1997}.
-Après 1960, la prolifération de l'ordinateur à grandement contribué à l'explosion du nombres de nouveau résultats \cite{mira_historical_1997}.
-Aujourd'hui, l'étude des oscillateurs non-linéaires nous ouvres des possibilités dans le development de nouvelles technologies nano-mécanique, 
-tel que des qubits nano-mécaniques \cite{pistolesi_proposal_2021} ou de détecteurs de force ultrasensible \cite{moser_ultrasensitive_2013}.
+le domaine de la dynamique non-linéaire a connu une phase de croissance importante au début du vingtième siècle \cite{samoilenko_nn_1994}.
+Ce domaine a été marqué par des contributions notables telles que le travail novateur de B. van der Pol sur les oscillations de relaxation, ainsi que la méthode de moyennement développée par Krylov et Bogoliubov \cite{mira_historical_1997}. Depuis les années 1960, l'avènement de l'ordinateur a considérablement accéléré la découverte de nouveaux résultats en dynamique non-linéaire \cite{mira_historical_1997}.
+
+Aujourd'hui, l'étude des oscillateurs non-linéaires ouvre des perspectives passionnantes dans le développement de nouvelles nanotechnologies, tel que des qubits nanomécaniques \cite{pistolesi_proposal_2021} et des détecteurs de force ultrasensibles \cite{moser_ultrasensitive_2013}. Ce stage de recherche se concentre sur l'analyse de la synchronisation entre oscillateurs non-linéaires, un phénomène particulièrement intéressant en raison de ses applications potentielles en communication radio, en synchronisation d'horloges et en traitement du signal \cite{djorwe_self-organized_2020}.
+
+Dans ce rapport, nous chercherons à acquérir une compréhension des 
+comportements de plusieurs oscillateurs non-linéaires classiques ainsi que 
+des méthodes mathématiques fréquemment utilisées pour analyser de tels systèmes. 
+Enfin, nous appliquerons ces méthodes dans l'étude d'un système 
+de deux oscillateurs non-linéaires couplées afin de déterminer les conditions de synchronisation éventuelle.
 %ainsi que le development formel de la méthode approximative de moyennement par Krylov et Bogoliubov
 %Un domaine qui a jouit d'un intérêt -- pendant la première moitié du 
 %vingtième siècle pour leur importance dans le développement de nouvelles 
@@ -27,20 +21,6 @@ tel que des qubits nano-mécaniques \cite{pistolesi_proposal_2021} ou de détect
 %- développement de la méthode de moyennement par Krylov et Bogoliubov
 %- découvertes des cycles de relaxation, et première observations documenté du chaos déterminés par van der Pol
 %- nano-nonlinear oscillators for other applications
-
-L'auteur à effectué sont stage au Laboratoire Ondes et Matière d'Aquitaine avec pour
-sujet {l'étude théorique de la synchronisation entre oscillateurs non-linéaires}.
-Cette synchronisation est particulièrement intéressante dû
-à la présence de cycles limites entretenues de manière autonomes et au comportements collectives
-qui en résultent. Les applications potentielles de ces phénomènes collectives
-incluent la communication radio, la synchronisation d'horloges et le traitement de signal \cite{djorwe_self-organized_2020}.
-
-Dans ce rapport, nous chercherons à acquérir une compréhension des 
-comportements de plusieurs oscillateurs non-linéaires classiques ainsi que 
-des méthodes mathématiques fréquemment utilisées pour analyser de tels problèmes. 
-Finalement, nous appliquerons ces méthodes dans l'étude d'un système 
-de deux oscillateurs non-linéaires couplées afin de déterminer si et comment la synchronisation
-peut y avoir lieu.
 
 
 % L'oscillateur, système omniprésent dans la nature, 
