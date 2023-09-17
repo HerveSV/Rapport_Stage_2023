@@ -5,7 +5,7 @@ Considérons de nouveau un oscillateur forcé, mais maintenant avec un terme en 
 %Limite faible de $\epsilon$
 %
 \begin{equation}
-    \ddot{x} + \omega_0^2 x + \epsilon \gamma \dot{x} + \epsilon x^3 = \epsilon f_0 \cos(\omega t)
+    \ddot{x} + \omega_0^2 x + \epsilon \gamma \dot{x} + \epsilon \alpha x^3 = \epsilon f_0 \cos(\omega t)
     \label{eq:duffing}
 \end{equation}
 %DO $f_0 \to \epsilon f_0$ CHANGE
@@ -49,7 +49,7 @@ qui varient lentement avec le temps – on peut faire l'analogie avec l'oscillat
 Dans notre cas précis, il est particulièrement important de choisir la fréquence $\omega$ est non $\omega_0$ car cela nous permet de faire coïncider la solution au régime permanent (qui est supposé harmonique, avec fréquence $\omega$)
 au solutions stationnaires de $r(t)$ et $\phi(t)$. 
 
-§On peut aussi exprimer \eqref{eq:duff_x_xdot} sous forme complexe :
+On peut aussi exprimer \eqref{eq:duff_x_xdot} sous forme complexe :
 \begin{equation}
     x(t) = z(t)e^{i\omega t} + \bar{z}(t) e^{-i\omega t}
     \qquad 
@@ -83,14 +83,14 @@ En substituant les équations de $x$, $\dot{x}$, et de $\ddot{x}$ dans \eqref{eq
     2i\omega \dot{z}(t)e^{i\omega t} + (i\omega)^2 \left[ z(t)e^{i\omega t} + \bar{z}(t) e^{-i\omega t} \right]
     + i\epsilon\gamma\omega \left[ z(t)e^{i\omega t} - \bar{z}(t) e^{-i\omega t} \right] \\
     + \omega_0^2 \left[ z(t)e^{i\omega t} + \bar{z}(t) e^{-i\omega t} \right]
-    + \epsilon \left[ z(t)e^{i\omega t} + \bar{z}(t) e^{-i\omega t} \right]^3 = \epsilon \frac{f_0}{2}\left[ e^{i\omega t} + e^{-i\omega t} \right]
+    + \epsilon \alpha \left[ z(t)e^{i\omega t} + \bar{z}(t) e^{-i\omega t} \right]^3 = \epsilon \frac{f_0}{2}\left[ e^{i\omega t} + e^{-i\omega t} \right]
 \end{dmath}
 Puis en multipliant par $e^{-i\omega t}$ :
 \begin{dmath}
     2i\omega \dot{z}(t) + (i\omega)^2 \left[ z(t) + \bar{z}(t) e^{-i 2 \omega t} \right]
     + i\epsilon\gamma\omega \left[ z(t) - \bar{z}(t) e^{-i 2 \omega t} \right]
     + \omega_0^2 \left[ z(t) + \bar{z}(t) e^{-i 2 \omega t} \right] \\
-    + \epsilon \left[ z(t)^3 e^{i 2 \omega t} + 3 z(t)^2 \bar{z}(t) + 3z(t)\bar{z}(t)^2 e^{-i2\omega t} + \bar{z}(t)^3 e^{-i4 \omega t} \right]
+    + \epsilon \alpha \left[ z(t)^3 e^{i 2 \omega t} + 3 z(t)^2 \bar{z}(t) + 3z(t)\bar{z}(t)^2 e^{-i2\omega t} + \bar{z}(t)^3 e^{-i4 \omega t} \right]
     = \epsilon \frac{f_0}{2}\left[ 1 + e^{-i 2 \omega t} \right]
     \label{eq:duff_pre_av}
 \end{dmath}
@@ -130,9 +130,9 @@ ce qui nous permet de négliger les facteurs de $e^{i n\omega t}$.
     2i\omega \langle \dot{z} \rangle = - (i\omega)^2 \langle z \rangle
     - i\epsilon\gamma\omega \langle z \rangle
     - \omega_0^2 \langle z \rangle 
-    - 3 \epsilon \langle z^2 \bar{z} \rangle
+    - 3 \epsilon \alpha \langle z^2 \bar{z} \rangle
     + \epsilon \frac{f_0}{2} \\
-    = (\omega^2 - \omega_0^2)z(t) - i\epsilon\gamma\omega z(t) - 3\epsilon |z|^2 z(t) + \epsilon \frac{f_0}{2}
+    = (\omega^2 - \omega_0^2)z(t) - i\epsilon\gamma\omega z(t) - 3\epsilon\alpha |z|^2 z(t) + \epsilon \frac{f_0}{2}
 \end{dmath}
 %Une autre façon d'y  penser :  on discrétise le temps en blocs de $T$. 
 %Donc d'une certaine manière, on réduis la résolution temporelle de nos équations pour ne garder que les parties lentement variables.
@@ -142,7 +142,7 @@ donc on prend l'approximation $\omega^2 - \omega_0^2 = (\omega + \omega_0)(\omeg
 %
 \begin{dmath}
     \dot{z}(t) = -i(\omega - \omega_0)z(t)
-    - \frac{\epsilon\gamma}{2} z(t) + \frac{3i\epsilon}{2\omega}|z|^2z(t) - \frac{i\epsilon f_0}{4\omega}
+    - \frac{\epsilon\gamma}{2} z(t) + \frac{3i\epsilon\alpha}{2\omega}|z|^2z(t) - \frac{i\epsilon f_0}{4\omega}
 \end{dmath}
 %
 \section{Adimensionnement de l'équation}
@@ -158,7 +158,7 @@ Où $t_c$ et $z_c$ sont des constantes physiques à définir et $\tau$ et $q(\ta
 Ce choix de variables nous donne l'équation suivante :
 %
 \begin{equation}
-    \frac{dq}{d\tau} = q'(\tau) = -i(\omega - \omega_0)t_c q(\tau) - \frac{\epsilon\gamma}{2}t_c q(\tau) + i \frac{3\epsilon}{2\omega}z_c^2t_c |q|^2q(\tau) - \frac{i\epsilon f_0}{4\omega}\frac{t_c}{z_c}
+    \frac{dq}{d\tau} = q'(\tau) = -i(\omega - \omega_0)t_c q(\tau) - \frac{\epsilon\gamma}{2}t_c q(\tau) + i \frac{3\epsilon\alpha}{2\omega}z_c^2t_c |q|^2q(\tau) - \frac{i\epsilon f_0}{4\omega}\frac{t_c}{z_c}
 \end{equation}
 %
 Si on pose comme conditions :
@@ -168,7 +168,7 @@ Si on pose comme conditions :
     \begin{array}{@{}l@{}}
         \frac{\epsilon\gamma}{2}t_c = 1 \\
         \\
-        \frac{3\epsilon}{2\omega}z_c^2t_c = 1
+        \frac{3\epsilon\alpha}{2\omega}z_c^2t_c = 1
     \end{array}
     \right.\,
 \end{equation}
@@ -184,18 +184,18 @@ Avec :
 \begin{equation}
     \tau = \frac{\epsilon\gamma}{2}t
     \qquad
-    q(\tau) = \sqrt{\frac{3}{\omega\gamma}}z(t)
+    q(\tau) = \sqrt{\frac{3\alpha}{\omega\gamma}}z(t)
     \qquad
     \Omega = \frac{(\omega - \omega_0)}{\epsilon\gamma/2}
     \qquad
-    F_0 = \frac{\sqrt{3}f_0}{2(\omega \gamma)^{3/2}}
+    F_0 = \frac{\sqrt{3\alpha}f_0}{2(\omega \gamma)^{3/2}}
 \end{equation}
 %
 On peut trouver la solution stationnaire pour analyser le comportement à $t\to\infty$ :
 %
 \begin{equation}
     q_0 = \frac{F_0}{|q_0|^2 - \Omega + i}
-    \label{eq:duff_stationnaire}
+    \label{eq:duff_stat}
 \end{equation}
 %
 On s'intéresse surtout à l'amplitude en fonction de la fréquence, 
@@ -206,64 +206,40 @@ Cependant, il est possible d'exprimer $\Omega$ en fonction de $|q_0|$ :
     \Omega = |q_0|^2 \pm \sqrt{\frac{F_0^2}{|q_0|^2} - 1 }
     \label{eq:duff_response}
 \end{equation}
-%
+
+\begin{figure}[t]
+    \centering
+    \begin{subfigure}[b]{0.32\textwidth}
+        \includegraphics[width=\textwidth]{images/duffing/notitle_F0=0.5.png}
+        \caption{}\label{fig:duffing_response_1}
+    \end{subfigure}  
+    \hfill
+    \begin{subfigure}[b]{0.315\textwidth}
+        \includegraphics[width=\textwidth]{images/duffing/notitle_F0=1.5.png}
+        \caption{}\label{fig:duffing_response_2}
+    \end{subfigure} 
+    \hfill
+    \begin{subfigure}[b]{0.31\textwidth}
+        \includegraphics[width=\textwidth]{images/duffing/notitle_F0=5.0.png}
+        \caption{}\label{fig:duffing_response_3}
+    \end{subfigure} 
+    \caption{Réponses fréquentielles de Duffing obtenu à partir de \eqref{eq:duff_response} \textbf{(a)} $F_0=0.5$ \textbf{(b)} $F_0=1.5$ \textbf{(c)} $F_0=5.0$}\label{fig:duffing_response_all}
+\end{figure}
 Où $\pm \sqrt{\frac{F_0^2}{|q_0|^2} - 1 }$ correspondant à la lorentzienne pure, et $|q_0|^2$ forme 
 une colone vertébrale (\emph{backbone} en anglais) qui donne la forme caractéristique de cette réponse fréquentielle non-linéaire.
 %
-Pour $F_0 \to 0$ la réponse, devient lorentzienne. À mesure de $F_0$ augmente, la courbe de la réponse fréquentielle va se déformer en suivant la \emph{backbone} (fig. \ref{fig:duff_freq_resp_all}).
-% Effectivement, si le coefficient de non-linéarité $\epsilon$ est négligeable, 
-% alors on s'attend à un comportement qui se rapproche de l'oscillateur harmonique.
-% Or, pour avoir $F_0$ petit, il faut aussi que $f_0$
+Pour $F_0 \to 0$ la réponse, devient lorentzienne. À mesure de $F_0$ augmente, la courbe de la réponse fréquentielle va 
+se déformer en suivant la \emph{backbone} (fig.~\ref{fig:duffing_response_all}).
 
-On observe aussi qu'il existe une valeur critique $F_{0,c}$, où pour $F_0 > F_{0,c}$ le système admet trois amplitudes possibles, dont deux stables \cite{landau_mechanics_1976}. On parle alors d'un état bistable (fig. \ref{fig:duff_freq_resp_3}).
+On observe aussi qu'il existe une valeur critique $F_{0,c}$, où pour $F_0 > F_{0,c}$ le système admet 
+trois amplitudes possibles, dont deux stables \cite{landau_mechanics_1976}. On parle alors d'un état bistable (fig.~\ref{fig:duffing_response_3}).
 %
-\begin{figure}
-    % \begin{subcaptionblock}{.31\linewidth}
-    %   \includegraphics[width=\linewidth]{images/duffing/F0=0.5.png}%
-    %   \phantomcaption
-    % \end{subcaptionblock}
-    % %\hfill
-    % \begin{subcaptionblock}{.31\linewidth}
-    %   \includegraphics[width=\linewidth]{images/duffing/F0=1.5.png}%
-    %   \phantomcaption
-    % \end{subcaptionblock}
-    % %\hfill
-    % \begin{subcaptionblock}{.31\linewidth}
-    %   \includegraphics[width=\linewidth]{images/duffing/F0=5.0.png}
-    %   \phantomcaption
-    % \end{subcaptionblock}
-
-    \begin{subfigure}[b]{0.32\textwidth}
-         \centering
-         \includegraphics[width=\textwidth]{images/duffing/notitle_F0=0.5.png}
-         \caption{}
-         %\label{fig:comparison}
-     \end{subfigure}  
-     \hfill
-     \begin{subfigure}[b]{0.315\textwidth}
-         \centering
-         \includegraphics[width=\textwidth]{images/duffing/notitle_F0=1.5.png}
-         \caption{}
-         %\label{fig:comparison}
-     \end{subfigure} 
-     \hfill
-     \begin{subfigure}[b]{0.31\textwidth}
-         \centering
-         \includegraphics[width=\textwidth]{images/duffing/notitle_F0=5.0.png}
-         \caption{}
-         \label{fig:duff_freq_resp_3}
-     \end{subfigure} 
-    
-    \caption{Réponses fréquentielles de Duffing obtenu à partir de \eqref{eq:duff_response} \textbf{(a)} $F_0=0.5$ \textbf{(b)} $F_0=1.5$ \textbf{(c)} $F_0=5.0$}
-    \label{fig:duff_freq_resp_all}
-\end{figure}
-
 On cherche à déterminer la valeur de $F_{0, c}$. Pour alléger la notation, 
-on introduit la variable $u = |q_0|$ et on réarrange \eqref{eq:duff_stationnaire} :
+on introduit la variable $u = |q_0|$ et on réarrange \eqref{eq:duff_stat} :
 %
 \begin{equation}
     u^2[(u^2 - \Omega)^2 + 1] = F_0^2
-    \label{eq:duffing_stationnaire_in_u}
+    \label{eq:duff_stat_u}
 \end{equation}
 %
 Puis on prend la dérivée par rapport à $\Omega$.
@@ -272,7 +248,7 @@ Puis on prend la dérivée par rapport à $\Omega$.
     2u\frac{du}{d\Omega}(u^4 + \Omega^2 - 2\Omega u^2 + 1) + u^2(4u^3\frac{du}{d\Omega} + 2\Omega - 2u^2 - 4\Omega u\frac{du}{d\Omega}) = \frac{d}{d\Omega}F_0^2
 \end{equation}
 %
-On remarque que $F_0$ et $\Omega$ dépendent tous les deux de $\omega$, qui est la vraie fréquence de forçage. Toutefois, pour dériver l'équation \eqref{eq:duff_stationnaire}, on a supposé $\omega \approx \omega_0$. Donc : 
+On remarque que $F_0$ et $\Omega$ dépendent tous les deux de $\omega$, qui est la vraie fréquence de forçage. Toutefois, pour dériver l'équation \eqref{eq:duff_stat}, on a supposé $\omega \approx \omega_0$. Donc : 
 %
 \begin{equation*}
     \Omega \propto (\omega - \omega_0) \ll \omega
@@ -284,7 +260,7 @@ C'est-à-dire qu'en variant $\Omega$, la variation correspondante que subira $F_
     \frac{du}{d\Omega} = \frac{-\Omega u + u^3}{3u^4 + \Omega^2 - 4\Omega u^2 + 1}
 \end{equation}
 %
-On peut d'abord déterminer l'amplitude maximum, qui est atteint lorsque $\frac{du}{d\Omega}=0$, en réinsérant cette condition dans \eqref{eq:duffing_stationnaire_in_u} on trouve :
+On peut d'abord déterminer l'amplitude maximum, qui est atteint lorsque $\frac{du}{d\Omega}=0$, en réinsérant cette condition dans \eqref{eq:duff_stat_u} on trouve :
 %
 \begin{equation*}
     |q_0|_{max} = F_0
@@ -304,14 +280,14 @@ Lorsque $F_0 = F_{0,c}$, il existe une unique solution en $u$. On peut donc rés
     u^2 = \frac{2\Omega}{3}
 \end{equation}
 %
-Ce qui nous impose la solution unique $\Omega = \sqrt{3}$. En substituant ces valeurs dans \eqref{eq:duffing_stationnaire_in_u}, on trouve :
+Ce qui nous impose la solution unique $\Omega = \sqrt{3}$. En substituant ces valeurs dans \eqref{eq:duff_stat_u}, on trouve :
 %
 \begin{equation}
     F_{0,c} = \left(  \frac{8\sqrt{3}}{9}  \right)^{1/2} \approx 1.241
 \end{equation}
 %
-\todo{à revoir}
+%\todo{à revoir}
 %
-Une observation finale intéressante. Étant donné que $F_0 \propto \epsilon^{3/2}f_0$, 
+Une observation finale intéressante. Étant donné que $F_0 \propto \alpha f_0$, 
 on voit que même dans un système ou le terme non-linéaire est très faible (où on ne s'attendrait pas à observer de non-linéarité). Il suffit d'augmenter l'amplitude de forçage $f_0$ 
 pour faire ressortir un comportement non-linéaire (ici un état bistable). L'oscillateur harmonique pour modéliser les situations physiques n'est donc qu'une approximation valable à des amplitudes et à des forces relativement faibles.

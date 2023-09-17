@@ -1,0 +1,59 @@
+\chapter{L'oscillateur de Duffing forcé}
+%
+Considérons de nouveau un oscillateur forcé, mais maintenant avec un terme en $x^3$ supplémentaire, nous donnant l'équation de Duffing forcé. Ce n'est plus une équation linéaire, donc on ne peut plus exprimer la solution comme étant une superposition des solutions homogènes et particulières. Cette équation, comme la plupart des équations différentielles non-linéaires, n'a pas de solution analytique exacte.
+%
+\begin{equation}
+    \ddot{x} + \omega_0^2 x + \epsilon \gamma \dot{x} + \epsilon \alpha x^3 = \epsilon f_0 \cos(\omega t)
+    \label{eq:duffing}
+\end{equation}
+%
+\section{La méthode de moyennement}
+%
+Afin d'analyser ce problème, nous allons utiliser la méthode de 
+moyennement \cite{rand_lecture_2012} - un algorithme %développé dans les années 1930 par Krylov et %Bogoliubov pour 
+qui nous permet de chercher des solutions approximatives à des équations de la forme :
+\begin{equation}
+    \ddot{x} + \omega_0^2 x = \epsilon g(x, \dot{x}, t)
+\end{equation}
+Où $\epsilon$ est un petit paramètre et $g$ est une fonction non-linéaire. Pour notre problème en particulier, on cherche des solutions sous la forme :
+\begin{equation}
+    x(t) = r(t)\cos(\omega t + \phi(t)) \qquad \dot{x}(t) =  -\omega r(t)\sin(\omega t + \phi(t))
+    \label{eq:duff_xxdot}
+\end{equation}
+%
+En effet, pour $\epsilon=0$, l'équation correspond à l'oscillateur harmonique, avec $r$ et $\phi$ constants.
+Donc pour $0 < \epsilon \ll \omega_0$, on s'attend à trouver un comportement semblable, mais cette fois avec $r(t)$ et $\phi(t)$ 
+qui varient lentement avec le temps – on peut faire l'analogie avec l'oscillateur harmonique amorti, où la vitesse d'évolution est également lente pour petit $\gamma$.
+%
+
+Dans notre cas précis, il est particulièrement important de choisir la fréquence $\omega$ est non $\omega_0$ car cela nous permet de faire coïncider la solution au régime permanent (qui est supposé harmonique, avec fréquence $\omega$)
+au solutions stationnaires de $r(t)$ et $\phi(t)$. 
+
+On peut aussi exprimer \eqref{eq:duff_xxdot} sous forme complexe :
+\begin{equation}
+    x(t) = z(t)e^{i\omega t} + \bar{z}(t) e^{-i\omega t}
+    \qquad 
+    \dot{x}(t) = i\omega \left[ z(t)e^{i\omega t} - \bar{z}(t) e^{-i\omega t} \right]
+    \label{eq:duff_x_xdot_exp}
+\end{equation}
+%
+$z(t)$ étant une variable complexe encodant l'amplitude et la phase d'oscillations du système. Lorsque l'oscillateur oscille de manière harmonique à fréquence $\omega$, $z$ est constant \cite{pistolesi_duffing_nodate}.
+\[ z(t) = \frac{r(t)}{2}e^{i\phi(t)} \]
+%
+Ce changement de variable $(x, \dot{x}) \to (r, \phi)$ nous place effectivement sur un référentiel tournant à la fréquence $\omega$. 
+%Ce qui rend plus facile de travailler avec les variations lentes de $r(t)$ et $\phi(t)$.
+En effet, en écartant les oscillations rapides, il est plus facile de travailler avec les variations lentes de $r(t)$ et de $\phi(t)$. 
+
+En prenant la dérivée de \eqref{eq:duff_x_xdot_exp}, on obtient :
+\begin{equation}
+    \dot{x}(t) = \dot{z}(t)e^{i\omega t} + \dot{\bar{z}}(t) e^{-i\omega t} + i\omega \left[ z(t)e^{i\omega t} - \bar{z}(t) e^{-i\omega t} \right]
+    \label{eq:duff_x}
+\end{equation}
+\begin{equation}
+    \ddot{x}(t) = i\omega \left[ \dot{z}(t)e^{i\omega t} - \dot{\bar{z}}(t) e^{-i\omega t} \right] + (i\omega)^2 \left[ z(t)e^{i\omega t} + \bar{z}(t) e^{-i\omega t} \right]
+\end{equation}
+À partir de \eqref{eq:duff_x_xdot_exp} et de \eqref{eq:duff_x}, on obtient la condition :
+\begin{equation}
+    \dot{z}(t)e^{i\omega t} + \dot{\bar{z}}(t) e^{-i\omega t} = 0
+\end{equation}
+%
